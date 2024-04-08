@@ -1,0 +1,51 @@
+
+.Rewards {
+  color: #FFF;
+  width: 400px; /* Largura da imagem de Rewards */
+  position: relative; /* Definindo a posição como absoluta */
+  left: 130px; /* Movendo a imagem 130 pixels para a direita */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 200px;/* Espaçamento inferior para ajustar ao centro */
+  margin-left: 160px;
+  }
+.body{
+  font-family: Inter;
+  color:#0D5785;; 
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 50px; /* 277.778% */
+}
+.div{
+   background-color:white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   padding: 80px;
+   border-radius:15px;
+   color : white;
+
+}
+.input{
+   padding: 15px;
+   border-radius:10px;
+   border:none;
+   outline: none;
+   font-size:15px;
+} 
+.botao{
+    background-color: dodgerblue;
+    border: none;
+    padding: 15px;
+    width:100%;
+    border-radius: 10px;
+    color:black;
+}
+
+.botao:hover{
+  border-radius: 20px;
+  background: white;
+  color: #0D5785;
+}   

@@ -1,0 +1,141 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fundo {
+  background: #017CB7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Garante que a imagem de fundo fique atrás de outros elementos */
+}
+.background-container{
+  background-image: url(Img/Rota.png);
+  background-size: 50%; /* Reduzindo o zoom para 50% */
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  width: 100%;
+  height: 100%;
+}
+
+  
+.container {
+  display: flex;
+  flex-direction: column; /* Altera a direção principal para empilhar elementos verticalmente */
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Alinha o texto centralmente */
+  height: 100%; /* Garante que o contêiner ocupe toda a altura da página */
+}
+
+.TUB {
+  width: 400px; /* Largura da imagem do TUB */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 0px; /* Espaçamento inferior para ajustar ao centro */
+  top: 0;
+}
+
+.TUB2 {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Define o ponto central horizontal */
+  transform: translateX(-50%); /* Move o elemento de volta à esquerda pela metade da sua largura */
+  width: 500px;
+  height: auto;
+}
+
+.Rewards {
+  color: #FFF;
+  width: 400px; /* Largura da imagem de Rewards */
+  position: relative; /* Definindo a posição como absoluta */
+  left: 130px; /* Movendo a imagem 130 pixels para a direita */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 150px;/* Espaçamento inferior para ajustar ao centro */
+}
+.Rewards2 {
+  color: #FFF;
+  width: 400px; /* Largura da imagem de Rewards */
+  position: relative; /* Definindo a posição como absoluta */
+  left: 130px; /* Movendo a imagem 130 pixels para a direita */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-left:50px;
+  margin-top:-40px;
+}
+
+.bemvindo {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.ganhar-ponto {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+}
+.utlizadoranimacao{
+  width: 52px; /* Definindo a largura desejada */
+  height: 52px; /* Definindo a altura desejada */
+  position: center; 
+  margin-bottom: 20px;
+  margin-top: 120px;
+}
+.botao{
+  display: flex;
+  width: 175px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  margin-left: 10%;
+  border-radius: 10px;
+  background: #0D5785;
+  padding: 7px; /* simplificado */
+  text-decoration: none;
+  margin: 10px;
+}
+.botao:hover{
+  border-radius: 20px;
+  background: white;
+  color: #0D5785;
+}
+
+.naotem{
+  margin-bottom:10px;
+  margin-top:10px;
+}
+.registese{
+ position: center; 
+ margin-bottom: 40px;
+ color: #FFF;
+ text-align: center;
+ font-family: Inter;
+ font-size: 20px;
+ font-style: normal;
+ font-weight: 600;
+ line-height: 50px; 
+}
+.letra1{
+  color: #FFF;
+  text-decoration: none;
+}
+.letra{
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  border-left:10% ;
+  text-decoration-line: underline;
+}
