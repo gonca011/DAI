@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoio ao CLIENTE</title>
+    <title>Area de Cliente/ED3</title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -13,11 +12,8 @@
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
         <nav class="Apoiogrande">
-            <i class="Apoioaoc">APOIO AO CLIENTE</i>
+            <i class="areacliente">Área De Cliente</i>
         </nav>
-    </nav>
-    <nav>
-        <i class="centrara">Tipo de Comunicação a Efetuar</i>
     </nav>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
         <a class="box1a" href="AdminCriarOutrasContas.html"></a>
@@ -26,33 +22,36 @@
         <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
     </div>
-    <div class="boxr">
-        <button type="button" class="botao-reclamacao lapoio" onclick="reclamacao()">Reclamação</button>
-        <button type="button" class="botao-elogio lapoio" onclick="elogio()">Elogio</button>
-        <button type="button" class="botao-informacoes lapoio" onclick="informacoes()">Informações</button>
-        <button type="button" class="botao-opiniao lapoio" onclick="opiniao()">Opinião</button>
-    </div>
-    </div>
-    <script>
-        /*Menu */
-        function reclamacao() {
-            window.location.href = "../Menuapoioadmin/Reclamacao.html";
-        }
-        function elogio() {
-            window.location.href = "../Menuapoioadmin/Elogio.html";
-        }
-        function informacoes() {
-            window.location.href = "../Menuapoioadmin/informacoes.html";
-        }
-        function opiniao() {
-            window.location.href = "../Menuapoioadmin/Opiniaoc.html";
-        }
-        /*Menu lateral*/
-        function definicoes() {
-        window.location.href = "../Administrador/definicoes.html";
+    <div class="boxcomercial1">
+        <nav class="conteudoboxcontainer ">
+            <div class="container">
+           <!-- Dados laterais  -->
+            <nav class="nome-do-cliente" >Contactos</nav>
+            <div class="inputboxv1a ">
+                <label for="carreira" >Telemóvel</label><br>
+                <input type="text" id="Código" name="Código" autocomplete="off" autofocus="" required>
+            </div>
+            <div class="inputboxv2a">
+                <label for="carreira">Endereço de Email </label><br>
+                <input type="text" id="Morada" name="Morada" autocomplete="off" autofocus="" required>
+            </div>
+        </nav>
+    <button  type="button" class="botao-proximoed1v" onclick="Areac()">Voltar</button>
+    <button  type="button" class="botao-proximoed1" onclick="acabar()">Proximo</button>
+</div>
+<script>
+ function Areac(){
+        window.location.href = "Editarconta2.html"
+    }
+    function acabar(){
+        window.location.href ="Areaclientemostrardados.html"
+    } 
+    /*Menu lateral*/
+    function definicoes() {
+            window.location.href = "definicoes.html";
         }
         function ajuda() {
-        window.location.href = "../Administrador/Coapoioaocliente.html";
+            window.location.href = "Coapoioaocliente.html";
         }
         function terminar() {
             fetch('http://localhost:8080/apagarLinhaAdministrador', {
@@ -86,8 +85,6 @@
                 botaoAjudaL.style.display = "none";
                 botaoterminar.style.display = "none";
             }
-        }
-    </script>
-</body>
+        } 
+</script>
 </html>
-

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Cliente</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="Apoiogrande">
+            <i class="areacliente">Área De Cliente </i>
+        </nav>
+    </nav>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1a" href="AdminCriarOutrasContas.html"></a>
+        <a class="box2a" href="AssociarPerfis.html"></a>
+        <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL"
+            style="display: none;"></button>
+        <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+        <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar"
+            style="display: none;">Terminar sessão</button>
+    </div>
+    <div class="boxcomercial1">
+        <nav class="conteudoboxcontainer ">
+            <div class="container">
+                <!-- Dados laterais  -->
+                <nav class="nome-do-cliente">Nome do Cliente </nav>
+                <div class="inputboxv1a">
+                    <label for="Data">Data de Nascimento</label><br>
+                    <input type="text" id="Data" name="Data" autocomplete="off" autofocus="" required>
+                </div>
+                <div class="inputboxv2a">
+                    <label for="Email">Endereço de Email</label><br>
+                    <input type="text" id="Email" name="Email" autocomplete="off" autofocus="" required>
+                </div>
+                <div class="inputboxv3a">
+                    <label for="Morada">Morada</label><br>
+                    <input type="text" id="Morada" name="Morada" autocomplete="off" autofocus="" required>
+                </div>
+                <div class="inputboxv4a">
+                    <label for="Contacto">Contacto</label><br>
+                    <input type="text" id="Contacto" name="Contacto" autocomplete="off" autofocus="" required>
+                </div>
+                <div class="inputboxv5a">
+                    <label for="Identificacao">Nº Doc. Identificacao</label><br>
+                    <input type="text" id="Identificacao" name="Identificacao" autocomplete="off" autofocus="" required>
+                </div>
+                <div class="inputboxv6a">
+                    <label for="NIF">NIF</label><br>
+                    <input type="text" id="NIF" name="NIF" autocomplete="off" autofocus="" required>
+                </div>
+        </nav>
+        <button type="button" class="botao-proximo3v" onclick="Editarc()">Editar</button>
+        <button type="button" class="botao-proximo3" onclick="Eliminarconta()">Eliminar conta</button>
+    </div>
+    <script>
+        function Eliminarconta() {
+            window.location.href = "Eliminarcontap1.html"
+        }
+        function Editarc() {
+            window.location.href = "Editarconta1.html"
+        }
+        /*Menu lateral*/
+        function definicoes() {
+            window.location.href = "definicoes.html";
+        }
+        function ajuda() {
+            window.location.href = "Coapoioaocliente.html";
+        }
+        function terminar() {
+            fetch('http://localhost:8080/apagarLinhaAdministrador', {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    window.location.href = "../Paginainicial.html";
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menuLateral");
+            var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+            var botaoAjudaL = document.getElementById("botaoAjudaL");
+            var botaoTerminar = document.getElementById("botaoterminar");
+
+
+            if (menu.style.left === "-250px") {
+                menu.style.left = "0";
+                botaoDefinicoesL.style.display = "block";
+                botaoAjudaL.style.display = "block";
+                botaoTerminar.style.display = "block";
+            } else {
+                menu.style.left = "-250px";
+                botaoDefinicoesL.style.display = "none";
+                botaoAjudaL.style.display = "none";
+                botaoterminar.style.display = "none";
+            }
+        }
+        window.onload = function () {
+            fetch('http://localhost:8080/mostrarDadosAdministrador')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    let user = data[0]; // Access the first element of the array
+                    console.log(user);
+                    document.getElementById('Data').value = user.dataDeNascimento;
+                    document.getElementById('Email').value = user.email;
+                    document.getElementById('Morada').value = user.morada;
+                    document.getElementById('Contacto').value = user.telemovel;
+                    document.getElementById('Identificacao').value = user.numdocIdentificacao;
+                    document.getElementById('NIF').value = user.nif;
+                })
+                .catch(error => {
+                    console.log('Fetch error: ', error);
+                });
+        };
+    </script>
+
+</html>
