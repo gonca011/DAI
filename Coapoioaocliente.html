@@ -20,13 +20,8 @@
         <i class="centrara">Tipo de Comunicação a Efetuar</i>
     </nav>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
-        <a class="box1" href="Menuviagens.html"></a>
-        <a class="box2" href="Horariospercursos.html"></a>
-        <a class="box3" href="Menuconsultarpontos.html"></a>
-        <a class="box4" href="Menuativarpontos.html"></a>
-        <a class="box5" href="Menupremios.html"></a>
-        <a class="box6" href="Areaclientemostrardados.html"></a>
-        <a  class="box7" href="Paginautilizador.html"></a>
+        <a class="box1m" href="AssociarPerfis.html"></a>
+        <a class="box2m" href="/*A Fazer*/"></a>
         <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
         <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
@@ -41,26 +36,26 @@
     <script>
         /*Menu */
         function reclamacao() {
-            window.location.href = "../Menuapoio/Reclamacao.html";
+            window.location.href = "../Menuapoiomotorista/Reclamacao.html";
         }
         function elogio() {
-            window.location.href = "../Menuapoio/Elogio.html";
+            window.location.href = "../Menuapoiomotorista/Elogio.html";
         }
         function informacoes() {
-            window.location.href = "../Menuapoio/informacoes.html";
+            window.location.href = "../Menuapoiomotorista/informacoes.html";
         }
         function opiniao() {
-            window.location.href = "../Menuapoio/Opiniaoc.html";
+            window.location.href = "../Menuapoiomotorista/Opiniaoc.html";
         }
         /*Menu lateral*/
         function definicoes() {
-            window.location.href = "definicoes.html";
+        window.location.href = "../Motorista/definicoes.html";
         }
         function ajuda() {
-            window.location.href = "Coapoioaocliente.html";
+        window.location.href = "../Motorista/Coapoioaocliente.html";
         }
         function terminar() {
-            fetch('http://localhost:8080/apagarLinhaCliente', {
+            fetch('http://localhost:8080/apagarLinhaMotorista', {
                 method: 'POST',
             })
                 .then(response => {
