@@ -1,0 +1,951 @@
+/*Inicio de Sessão*/
+.login {
+  text-align: center;
+  color: black;
+}
+
+/*Login*/
+
+.body {
+  font-family: Inter;
+  color: #0D5785;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 50px;
+}
+
+.div {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 80px;
+  border-radius: 15px;
+  color: white;
+}
+
+.input {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+/*Final R*/
+.texto-centrado {
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 50px;
+  color: green;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.texto-centrado1 {
+  color: #000;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* */
+.h1 {
+  margin-top: 20px;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+  pointer-events: none;
+  transition: 0.1s;
+  order: -1;
+}
+
+.h2 {
+  margin-top: 20px;
+  font-size: 15px;
+  color: black;
+  text-align: right;
+  pointer-events: none;
+  transition: 0.1s;
+  order: -1;
+}
+
+/*Menu Viagens*/
+.a {
+  margin-left: 100px;
+  margin-right: 100px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* */
+.centrado {
+  border: 10px;
+  position: relative;
+  width: 10%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.img1,
+.img2,
+.img3 {
+  border: 10px;
+  position: relative;
+  width: 10%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.img1 {
+  left: 30%;
+  right: auto;
+}
+
+.img2 {
+  left: 35%;
+  right: auto;
+}
+
+.img3 {
+  left: 40%;
+  right: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/**/
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #017CB7;
+  background-image: url(Img/Tubtudo.png);
+  background-position: top;
+  background-size: 25%;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.background-container {
+  background-image: url(Img/Rota.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.bemvindo {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.ganhar-ponto {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+
+.utlizadoranimacao {
+  width: 52px;
+  height: 52px;
+  position: center;
+  margin-bottom: 20px;
+  margin-top: 120px;
+}
+
+.naotem {
+  color: white;
+  text-decoration-line: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.registese {
+  position: center;
+  margin-bottom: 40px;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.letra1 {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.letra {
+  color: white;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  border-left: 10%;
+  text-decoration-line: underline;
+}
+
+/*Utilizador Menu */
+.tentativadefundo {
+  background-color: #017CB7;
+  background-image: url(Img/TUB.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 200px;
+  background-position: top center;
+}
+
+.Rewardstentativadefundo {
+  color: #FFF;
+  position: relative;
+  position: center top;
+  width: 100%;
+  top: -260px;
+  left: 150px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.imagemrota {
+  position: absolute;
+  margin-bottom: -20%;
+}
+
+.fraseola {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Informações*/
+.backgrouninformaçoes {
+  background: #163E64;
+}
+
+.Infgrande {
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+  width: 25%;
+  height: 250px;
+  background: url(Img/Informações\ grande.png) 50% / cover no-repeat;
+  z-index: 2;
+}
+
+.informacao {
+  color: #FFF;
+  position: relative;
+  top: 250px;
+  ;
+  right: -100px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.apoio {
+  color: #FFF;
+  position: absolute;
+  top: 0%;
+  left: -280%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/*Definições*/
+.letradef {
+  color: #000;
+  position: absolute;
+  top: -0px;
+  left: 60px;
+  text-align: left;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.letrae {
+  color: #000;
+  position: absolute;
+  top: 5%;
+  left: 4%;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 25;
+  line-height: 50px;
+  text-align: left;
+  padding-top: 0;
+}
+
+.letram {
+  color: #050505;
+  position: absolute;
+  top: 35%;
+  left: 7%;
+  flex-shrink: 0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.letramm {
+  color: #050505;
+  position: absolute;
+  top: 20%;
+  left: 7%;
+  flex-shrink: 0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.letrad {
+  color: #000000;
+  position: absolute;
+  top: calc(30% + 30px);
+  left: 7.5%;
+  flex-shrink: 0;
+  width: 161px;
+  height: 40px;
+  flex-shrink: 0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 50px;
+}
+
+.letradh {
+  color: #000;
+  position: absolute;
+  top: calc(5% + 60px);
+  left: 8.5%;
+  width: auto;
+  height: 0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 1;
+  line-height: 30px;
+  margin: 0;
+  display: inline;
+}
+
+/*ERRO / Confirmação*/
+.texto {
+  white-space: nowrap;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.imagemcruz {
+  width: 26px;
+  height: 26px;
+  margin-right: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.imagemcerto2 {
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+}
+
+/* Comercial conteudo box */
+.conteudoboxcontainer {
+  position: absolute;
+  top: 40px;
+  left: -55%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conteudobox {
+  color: #000;
+  width: 361px;
+  text-align: left;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: none;
+  margin-bottom: 20px;
+}
+
+/*Menu Apoio Cliente Princial*/
+.Apoiogrande {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 25%;
+  height: 250px;
+  background: url(Img/apoio.png) 50% / contain no-repeat;
+  z-index: 2;
+}
+
+.Apoioaoc {
+  color: #FFF;
+  position: relative;
+  top: 280px;
+  right: -15%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.centrara {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+/*Menu Opinião*/
+/*Opiniao */
+.gradnopniao {
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+  width: 25%;
+  height: 250px;
+  background-image: url(Img/Opinião.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.opinao {
+  color: #FFF;
+  position: relative;
+  top: 280px;
+  right: -15%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+/*Elogio*/
+.gradelogio {
+  position: absolute;
+  top: 2.5%;
+  right: 0%;
+  width: 25%;
+  height: 250px;
+  background-size: 25%;
+  background-image: url(Img/ElogioG.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.elogio {
+  color: #FFF;
+  position: relative;
+  top: 110%;
+  right: -35%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+/*Reclamação*/
+.gradreclamacao {
+  position: absolute;
+  top: 2.5%;
+  right: 0%;
+  width: 25%;
+  height: 250px;
+  background-image: url(Img/ReclamaçãoG.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.reclamacao {
+  color: #FFF;
+  position: relative;
+  top: 100%;
+  right: -30%;
+  text-align: center;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+/*Percuso e horarios*/
+.Percursogrande {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/rotagrande.png) center/contain no-repeat;
+  z-index: 2;
+}
+
+.percurso {
+  position: relative;
+  left: 100%;
+  top: 40%;
+  flex-shrink: 0;
+  color: #FFF;
+  display: inline-block;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.centrarlinhas {
+  color: #FFF;
+  position: absolute;
+  left: 4%;
+  top: 55.5%;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+/*Menu Consultar pontos*/
+.Moedasconsultar {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/MoedasG.png) center/contain no-repeat;
+  z-index: 2;
+}
+
+.centrarm {
+  position: relative;
+  left: 100%;
+  top: 40%;
+  margin-left: 20%;
+  flex-shrink: 0;
+  color: #FFF;
+  display: inline-block;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/*Consultar para frase maior */
+.Moedasconsultarc {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/MoedasG.png) center/contain no-repeat;
+  z-index: 2;
+}
+
+/*Escolher promo*/
+.esolherpromo {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/Escolherpromog.png) center/contain no-repeat;
+  z-index: 2;
+}
+
+/*Escolher premio*/
+.esolherpremio {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/Escolherpremiog.png) center/contain no-repeat;
+  z-index: 2;
+}
+
+/*Menu Pontos*/
+.ativarpontos {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  background: url(Img/Codigoqrg.png) center/contain no-repeat;
+  z-index: 2;
+}
+/*Tirar o sublinhado */
+.tirarsub{
+  text-decoration: none;
+}
+/*Redefinir palavra pass*/
+.novo-utilizador {
+  position: relative;
+  left:20%;
+  width: 218px;
+  font-size: 18px;
+  line-height: 50px;
+  font-weight: 200;
+  font-family: Inter;
+  color: #000;
+}
+
+/*Area Cliente Cliente Grande*/
+.Apoiogrande {
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+  width: 25%;
+  height: 250px;
+  background-size: 135%; 
+  background-image: url(Img/Pessoagrande.png);
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+/*Area Cliente*/
+.areacliente{
+color: #FFF;
+top: 100%;
+width: 381px;
+position: relative;
+font-size: 40px;
+font-weight: 600;
+font-family: Inter;
+text-align: center;
+display: inline-block;
+}
+/*Class para os dados dos clientes*/
+.nome-do-cliente {
+  width: 400px;
+  display: inline-block; /* Alterado para inline-block para manter na mesma linha */
+  font-size: 25px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #017cb7;
+  text-align: left;
+  height: 50px;
+  margin: 0;
+  line-height: 50px; /* Removido line-height: normal */
+}
+.data-de-nascimento {
+  width: 400px;
+  display: inline-block; /* Alterado para inline-block para manter na mesma linha */
+  font-size: 18px;
+  line-height: 50px;
+  font-weight: 200;
+  font-family: Inter;
+  color: #000;
+  text-align: left;
+  display: inline-block;
+  height: 50px;
+}
+
+/*Eliminar conta*/
+.nome-do-cliente1 {
+  position: relative;
+  top: -20%;
+  left:0;
+  width: 400px;
+  display: inline-block; 
+  font-size: 25px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #017cb7;
+  text-align: left;
+  height: 50px;
+  margin-top: 50px;
+  line-height: 50px; 
+}
+.atenção {
+  position: absolute;
+  top: 10%; /* Ajustado para posicionar mais alto */
+  right: 48%;
+  background-image: url(Img/atencao.png);
+  background-size: 25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 14px;
+}
+.atencaof {
+  position: relative;
+  top: 40%;
+  left:10%;
+  width: 836px;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 200;
+  font-family: Inter;
+  color: #000;
+  white-space: pre-wrap;
+  text-align:  center left;
+  height: 100px;
+  margin-left: 5%;
+}
+/*linha horizontal */
+.linha-horizontal {
+  width: 100%;
+  left: 20%;
+  top: 20%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  color: #000;
+  height: 1.1px;
+  object-fit: contain;
+  background-color: black; /* Adicionando a cor preta como fundo */
+}
+.linha-horizontal1 {
+  width: 50%;
+  left: 0%;
+  top: 20%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  color: #000;
+  height: 1.1px;
+  object-fit: contain;
+  background-color: black; /* Adicionando a cor preta como fundo */
+}
+/*Comprarvaigens*/
+.compravaigens {
+  position: absolute;
+  top: -6%;
+  left:70%;
+  width: 25%;
+  height: 250px;
+  background-size: 100%; /* Aumenta a imagem em 10% */
+  background-image: url(Img/AutocarroB.png);
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.asminhasv {
+  position: relative;
+  color: #FFF;
+  top: 110%;
+  left:10%;
+  width: 400px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Inter;
+  text-align: left;
+  display: inline-block;
+  white-space: nowrap;
+}
+.botoes-comerciais {
+  position: absolute;
+  bottom: 10px; /* Ajuste conforme necessário */
+  right: 10%; /* Ajuste conforme necessário */
+}
+.botoes-comerciais1 {
+  position: absolute;
+  bottom: -13%; /* Ajuste conforme necessário */
+  right: 22%; /* Ajuste conforme necessário */
+}
+
+/*Viagens 2*/
+.v2 {
+  position: absolute; /* Alterado para 'absolute' para posicionamento absoluto */
+  top: 0; /* Coloca o elemento no topo */
+  left:4%; /* Coloca o elemento no canto esquerdo */
+  width: 400px;
+  font-size: 25px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #017cb7;
+  text-align: left;
+  height: 50px;
+  line-height: 50px;
+}
+/*Viagens 3*/
+.codigoaceite{
+  width: 418px;
+  position: absolute;
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 600;
+  font-family: Inter;
+  text-align: center center;
+  display: inline-block;
+  height: 50px;
+}
+/*Recompensas*/
+.troca-de-pontos {
+  width: 405px;
+  position: absolute;
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 200;
+  font-family: Inter;
+  color: #000;
+  text-align: center;
+  display: inline-block;
+  height: 100px;
+}
+.bem-sucedidada {
+  width: 418px;
+  position: absolute;
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #017cb7;
+  text-align: center ;
+  display: inline-block;
+  height: 50px;
+  margin-top: 15px;
+}
+/*Localizar autocarro*/
+.compravaigensl {
+  position: absolute;
+  top: -6%;
+  left:70%;
+  width: 25%;
+  height: 250px;
+  background-size: 100%; 
+  background-image: url(Img/Localização.png);
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+.localiza{
+  position: relative;
+  color: #FFF;
+  top: 100%;
+  left:20%;
+  width: 400px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Inter;
+  text-align: left;
+  display: inline-block;
+}
+.o-seu-autocarro {
+  width: 537px;
+  position: relative;
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #017cb7;
+  white-space: pre-wrap;
+  text-align: center;
+  display: inline-block;
+  height: 50px;
+}
