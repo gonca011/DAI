@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Associar Perfis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Centrar.css">
+        <link rel="stylesheet" href="Caixas.css">
+        <link rel="stylesheet" href="Botoes.css">
+    </head>
+    <body class="fundo">
+        <div class="boxRegisto">
+            <h2>Associar Perfis</h2>
+            <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+            <button type="button" class="botao-definicoes" onclick="definicoes()" id="botaoDefinicoes"></button>
+            <button type="button" class="botao-ajuda" onclick="ajuda()" id="botaoAjuda"></button>
+        </header>
+        <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+            <a class="box1m" href="AssociarPerfis.html"></a>
+            <a class="box2m" href="/*A Fazer*/"></a>
+            <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+            <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+            <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+        </div>
+            <form action="http://localhost:8080/perfis" method="post"></form>
+            <a class="botao-voltarad" href="PaginaMotorista.html">Voltar</a>
+            <a class="tirarsub" href="AssociarPerfilEspecial.html">Associar Perfil Especial /</a>
+            <a class="tirarsub" href="AssociarPerfildeCliente.html">Associar Perfil de Cliente </a>
+        </div>
+        <script>
+            function definicoes() {
+               window.location.href = "definicoes.html";
+           }
+           function ajuda() {
+               window.location.href = "Coapoioaocliente.html";
+           }
+           function terminar() {
+            fetch('http://localhost:8080/apagarLinhaMotorista', {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    window.location.href = "../Paginainicial.html";
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+           function toggleMenu() {
+               var menu = document.getElementById("menuLateral");
+               var botaoDefinicoes = document.getElementById("botaoDefinicoes");
+               var botaoAjuda = document.getElementById("botaoAjuda");
+               var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+               var botaoAjudaL = document.getElementById("botaoAjudaL");
+               var botaoTerminar = document.getElementById("botaoterminar");
+   
+               if (menu.style.left === "-250px") {
+                   menu.style.left = "0";
+                   botaoDefinicoes.style.display = "none";
+                   botaoAjuda.style.display = "none";
+                   botaoDefinicoesL.style.display = "block";
+                   botaoAjudaL.style.display = "block";
+                   botaoTerminar.style.display = "block";
+               } else {
+                   menu.style.left = "-250px";
+                   botaoDefinicoes.style.display = "block";
+                   botaoAjuda.style.display = "block";
+                   botaoterminar.style.display = "none";
+                   botaoDefinicoesL.style.display = "none";
+                   botaoAjudaL.style.display = "none";
+               }
+           }
+        </Script>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outros</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="gradreclamacao">
+            <i class="reclamacao">Reclamação</i>
+            <h6 class="apoio">APOIO AO CLIENTE</h6>
+        </nav>
+    </nav>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1" href="../Utilizador/Menuviagens.html"></a>
+        <a class="box2" href="../Utilizador/Horariospercursos.html"></a>
+        <a class="box3" href="../Utilizador/Menuconsultarpontos.html"></a>
+        <a class="box4" href="../Utilizador/Menuativarpontos.html"></a>
+        <a class="box5" href="../Utilizador/Menupremios.html"></a>
+        <a class="box6" href="../Utilizador/Areaclientemostrardados.html"></a>
+        <a  class="box7" href="../Utilizador/Paginautilizador.html"></a>
+        <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+        <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+        <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+    </div>
+    <div class="boxcomercial">
+        <nav class="conteudoboxcontainer ">
+            <div class="container">
+                <div class="botaoquadrado" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Proteção de Dados</p>
+                <div class="botaoquadrado1" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Perdidos e Achados</p>
+                <div class="botaoquadrado2" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Outro</p>
+            </div>
+        </nav>
+    <button type="button" class="botao-voltarbranco" onclick="Rvoltar()">&lt; Voltar</button>
+    <button type="button" class="botao-proximoazul" onclick="Rproximo()">Próximo &gt;</button>
+</div>
+<div>
+    <button type="button" class="botao-comercial" onclick="Rcomercial()">Comercial</button>
+    <button type="button" class="botao-transporte" onclick="Rtransporte()">Transporte de Passageiros</button>
+    <button type="button" class="botao-estacionamento" onclick="Restacionamento()">Estacionamento Urbano</button>
+    <button type="button" class="botao-outros" onclick="Routros()">Outros</button>
+</div>
+<script>
+    /*Funcional */
+    function Rvoltar(){
+        window.location.href =  "Restacionamento.html"
+    }
+    function Rproximo(){
+        window.location.href = "../Utilizador/Coapoioaocliente.html";
+    } 
+    function Rcomercial(){
+        window.location.href = "Rcomercial.html";
+    }
+    function Rtransporte(){
+        window.location.href = "Rtransporte.html";
+    }
+    function Restacionamento(){
+        window.location.href = "Restacionamento.html";
+    }
+    function Routros(){
+    window.location.href = "Routros.html";
+   }
+  /*Menu lateral*/
+  function definicoes() {
+        window.location.href = "../Utilizador/definicoes.html";
+        }
+        function ajuda() {
+        window.location.href = "../Utilizador/Coapoioaocliente.html";
+        }
+    function terminar() {
+            fetch('http://localhost:8080/apagarLinhaAdministrador', {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    window.location.href = "../Paginainicial.html";
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menuLateral");
+            var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+            var botaoAjudaL = document.getElementById("botaoAjudaL");
+            var botaoTerminar = document.getElementById("botaoterminar");
+
+            if (menu.style.left === "-250px") {
+                menu.style.left = "0";
+                botaoDefinicoesL.style.display = "block";
+                botaoAjudaL.style.display = "block";
+                botaoTerminar.style.display = "block";
+            } else {
+                menu.style.left = "-250px";
+                botaoDefinicoesL.style.display = "none";
+                botaoAjudaL.style.display = "none";
+                botaoterminar.style.display = "none";
+            }
+        }
+      function toggleCheck(element) {
+            element.classList.toggle("checked");
+        }
+</script>
+</body>
+</html>

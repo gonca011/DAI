@@ -439,7 +439,6 @@
   font-size: 14px;
   font-family: Arial, sans-serif;
 }
-
 /*Informações*/
 .boxcomercial {
   position: absolute;
@@ -829,6 +828,34 @@
   border: none;
 }
 
+/*Menu editar*/
+
+.inputboxv1a ,.inputboxv2a, .inputboxv3a, .inputboxv4a,.inputboxv5a,.inputboxv6a {
+  display: block;
+  margin-right: 7%;
+  overflow: hidden;
+  position: relative; 
+  width: 100%;
+}
+
+.inputboxv1a label,.inputboxv2a label, .inputboxv3a label, .inputboxv4a label, .inputboxv5a label, .inputboxv6a label   {
+  display: block;
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: -4%; 
+  text-align: left;
+}
+
+.inputboxv1a input ,.inputboxv2a input, .inputboxv3a input, .inputboxv4a input,.inputboxv5a input,.inputboxv6a input{
+  box-sizing: border-box;
+  background-color: #d9d9d9;
+  display: block;
+  outline: none;
+  border-radius: 20px;
+  padding: 5px;
+  width: calc(100% - 10px);
+  border: none;
+}
 
 /*Menu Administrador*/
 .box1a {
@@ -839,7 +866,7 @@
   border-bottom: 1px solid #FFF;
   background: #163E64;
   background-image: url(Img/Contas.png);
-  background-position: 20px center;
+  background-position: left center;
   background-repeat: no-repeat;
 }
 
@@ -868,7 +895,7 @@
   border-bottom: 1px solid #FFF;
   background: #163E64;
   background-image: url(Img/contapq.png);
-  background-position: 20px center;
+  background-position: left center;
   background-repeat: no-repeat;
 }
 
@@ -883,6 +910,376 @@
   line-height: normal;
   top: 50%;
   right: 5px;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+/*Coordenador*/
+.box1c {
+  top: -50px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/contapq.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.box1c::after {
+  content: "Perfil";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 30%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box2c {
+  top: -60px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/Premiopequenopng.png);
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 60px auto;
+}
+
+
+.box2c::after {
+  content: "Prémios";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box3c {
+  top: -70px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/promopq.png);
+  background-position: -20px center; 
+  background-repeat: no-repeat;
+}
+.box3c::after {
+  content: "Promoções";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal; 
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box4c {
+  top: -80px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/moedasper.png);
+  background-position: 15px center; 
+  background-repeat: no-repeat;
+}
+
+.box4c::after {
+  content: "Códigos de Desconto";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box5c {
+  top: -90px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/Parceiros.png);
+  background-position: -10px center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+.box5c::after {
+  content: "Parceiros";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 25%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box1m {
+  top: -50px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/contapq.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.box1m::after {
+  content: "Perfil";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 30%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box2m {
+  top: -60px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/qr-code.png);
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 60px auto; /* Ajuste o valor '80px' conforme necessário */
+}
+
+
+.box2m::after {
+  content: "QR CODE";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 25%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box1g {
+  top: -50px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/contapq.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.box1g::after {
+  content: "Perfil";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 30%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box2g {
+  top: -60px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/autocarrobranco.png);
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 60px auto;
+}
+
+
+.box2g::after {
+  content: "Frota";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 30%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box3g {
+  top: -70px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/tempo.png);
+  background-position: -20px center; 
+  background-repeat: no-repeat;
+}
+.box3g::after {
+  content: "Anúncios de Atraso";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal; 
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box4g {
+  top: -80px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/rotapq.png);
+  background-position: -15px center; 
+  background-repeat: no-repeat;
+}
+
+.box4g::after {
+  content: "Anúncios de Alteração  de Rota";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  color: #FFF;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box5g {
+  top: -90px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/rotapequena.png);
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  background-size: 25%;
+}
+
+.box5g::after {
+  content: "Percursos";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 25%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.box6g {
+  top: -100px;
+  width: 250px;
+  height: 97px;
+  position: relative;
+  border-bottom: 1px solid #FFF;
+  background: #163E64;
+  background-image: url(Img/horario.png);
+  background-position: -20px center;
+  background-repeat: no-repeat;
+}
+
+.box6g::after {
+  content: "Horários";
+  position: absolute;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  top: 50%;
+  right: 25%;
   transform: translateY(-50%);
   color: #FFF;
   font-size: 14px;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Desassociar Perfil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Desassociar Perfil</h2>
+            <form action="http://localhost:8080/desassociarPerfil" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" required>
+                    <label for="numdocIdentificacao">O seu Nº de Documento de Identificação:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="perfil" name="perfil" required>
+                    <label for="perfil">O tipo de Perfil Especial que deseja Desassociar:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+            <a href="AssociarPerfis.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

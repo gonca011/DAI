@@ -745,6 +745,15 @@ body {
   color: white;
   margin-right: 5px;
 }
+.checkmark {
+  font-size: 35px;
+  color: green;
+  display: none;
+}
+
+.checked .checkmark {
+  display: block;
+}
 
 /*Apoio ao Cliente  Menu */
 /*Botao reclamacao*/
