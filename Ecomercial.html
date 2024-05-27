@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercial</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="gradelogio">
+            <i class="elogio">ELOGIO</i>
+            <h6 class="apoio">APOIO AO CLIENTE</h6>
+        </nav>
+    </nav>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1m" href="../Motorista/AssociarPerfis.html"></a>
+        <a class="box2m" href="/*A Fazer*/"></a>
+        <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+        <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+        <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+    </div>
+    <div class="boxcomercial">
+        <nav class="conteudoboxcontainer">
+            <div class="container">
+                <div class="botaoquadrado" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Apoio ao Cliente (operador)</p>
+                <div class="botaoquadrado1" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Processamento de Passes</p>
+                <div class="botaoquadrado2" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Tarifário</p>
+                <div class="botaoquadrado3" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Pré-Comprados</p>
+                <div class="botaoquadrado4" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Processamento de Passes</p>
+                <div class="botaoquadrado5" onclick="toggleCheck(this)">
+                    <span class="checkmark">&#10003;</span>
+                </div>
+                <p class="conteudobox">Postos de Venda</p>
+            </div>
+        </nav>
+        <button type="button" class="botao-voltarbranco" onclick="Evoltar()">&lt; Voltar</button>
+        <button type="button" class="botao-proximoazul" onclick="Eproximo()">Próximo &gt;</button>
+    </div>
+    <div>
+        <button type="button" class="botao-comercial" onclick="Ecomercial()">Comercial</button>
+        <button type="button" class="botao-transporte" onclick="Etransporte()">Transporte de Passageiros</button>
+        <button type="button" class="botao-estacionamento" onclick="Eestacionamento()">Estacionamento Urbano</button>
+        <button type="button" class="botao-outros" onclick="Eoutros()">Outros</button>
+    </div>
+    <script>
+        /*Funcional */
+        function Evoltar() {
+            window.location.href = "../Motorista/PaginaMotorista.html"
+        }
+        function Eproximo() {
+            window.location.href = "ETransporte.html"
+        }
+        function Ecomercial() {
+            window.location.href = "Ecomercial.html";
+        }
+        function Etransporte() {
+            window.location.href = "Etransporte.html";
+        }
+        function Eestacionamento() {
+            window.location.href = "Eestacionamento.html";
+        }
+        function Eoutros() {
+            window.location.href = "outros.html";
+        }
+        /*Menu lateral*/
+        function definicoes() {
+        window.location.href = "../Motorista/definicoes.html";
+        }
+        function ajuda() {
+        window.location.href = "../Motorista/Coapoioaocliente.html";
+        }
+        function terminar() {
+            fetch('http://localhost:8080/apagarLinhaMotorista', {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    window.location.href = "../Paginainicial.html";
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menuLateral");
+            var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+            var botaoAjudaL = document.getElementById("botaoAjudaL");
+            var botaoTerminar = document.getElementById("botaoterminar");
+
+
+            if (menu.style.left === "-250px") {
+                menu.style.left = "0";
+                botaoDefinicoesL.style.display = "block";
+                botaoAjudaL.style.display = "block";
+                botaoTerminar.style.display = "block";
+            } else {
+                menu.style.left = "-250px";
+                botaoDefinicoesL.style.display = "none";
+                botaoAjudaL.style.display = "none";
+                botaoterminar.style.display = "none";
+            }
+        }
+        function toggleCheck(element) {
+            element.classList.toggle("checked");
+        }
+    </script>
+</body>
+
+</html>
