@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Autocarro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Autocarro</h2>
+            <form action="http://localhost:8080/removeAutocarro" method="post">
+                <div class="inputBox utilizado">
+                    <input type="matricula" id="matricula" name="matricula" required>
+                    <label for="matricula">Matrícula:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+            <a href="AdicionarAutocarros.html" class="botao-voltaradd">Voltar</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Autocarros</h2>
+            <ul id="autocarrosList"></ul>
+            <script>
+                fetch('http://localhost:8080/listarAutocarros')  // Replace with your server URL
+                    .then(response => response.json())
+                    .then(data => {
+                        const autocarrosList = document.getElementById('autocarrosList');
+
+                        data.forEach(autocarro => {
+                            const li = document.createElement('li');
+                            li.textContent = `Matricula: ${autocarro.matricula}, Capacidade: ${autocarro.capacidade}, NumKm: ${autocarro.numKm}`;
+                            autocarrosList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Anuncio de Atraso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Anúncio de Atraso</h2>
+            <form action="http://localhost:8080/removeAnuncioAtraso" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="idAtraso" name="idAtraso" required>
+                    <label for="idAtraso">ID do Anúncio:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Anúncios de Atraso</h2>
+            <ul id="anunciosList"></ul>
+            <a href="AdicionarAnunciosDeAtraso.html" class="botao-voltaradd">Voltar</a>
+            <script>
+                fetch('http://localhost:8080/listarAnuncios')
+                    .then(response => response.json())
+                    .then(anuncios => {
+                        const anunciosList = document.getElementById('anunciosList');
+                        anuncios.forEach(anuncio => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `ID: ${anuncio.idAtraso}, Motivo: ${anuncio.motivoAtraso}, Tempo Atraso: ${anuncio.tempoAtraso}`;
+                            anunciosList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

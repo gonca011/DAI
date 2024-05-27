@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Perfis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Listar Perfis</h2>
+            <ul id="perfisList"></ul>
+
+            <script>
+                async function fetchWithRetry(url, options = {}, retries = 3, backoff = 300) {
+                    const retryCodes = [408, 500, 502, 503, 504, 522, 524];  // Add any status code you want to retry on
+                    try {
+                        const response = await fetch(url, options);
+                        if (response.ok) return response.json();
+                        if (retries > 0 && retryCodes.includes(response.status)) {
+                            await new Promise(resolve => setTimeout(resolve, backoff));
+                            return fetchWithRetry(url, options, retries - 1, backoff * 2);
+                        }
+                        throw new Error(response.statusText);
+                    } catch (error) {
+                        if (retries > 0) {
+                            await new Promise(resolve => setTimeout(resolve, backoff));
+                            return fetchWithRetry(url, options, retries - 1, backoff * 2);
+                        }
+                        throw error;
+                    }
+                }
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    async function listarPerfis() {
+                        const numdocIdentificacao = document.getElementById('numdocIdentificacao').value;
+                        console.log('numdocIdentificacao:', numdocIdentificacao);
+                        try {
+                            const response = await fetchWithRetry('http://localhost:8080/listarPerfis?numdocIdentificacao=' + numdocIdentificacao);
+                            let perfis = await response;  // renamed from 'emails' to 'perfis'
+                            const perfisList = document.getElementById('perfisList');
+                            perfisList.innerHTML = '';
+                            console.log(perfis);
+
+                            // If perfis is not an array, convert it to an array
+                            if (!Array.isArray(perfis)) {
+                                perfis = [perfis];
+                            }
+
+                            perfis.forEach(perfil => {
+                                const li = document.createElement('li');
+                                if (typeof perfil.perfil === 'string') {
+                                    li.textContent = perfil.perfil;
+                                } else if (typeof perfil.perfil === 'object') {
+                                    console.log('perfil.perfil properties:', Object.keys(perfil.perfil));  // log the properties of perfil.perfil
+                                    li.textContent = perfil.perfil;  // replace 'actualPropertyName' with the actual property name
+                                }
+                                perfisList.appendChild(li);
+                            });
+                        } catch (error) {
+                            console.error('Error:', error);
+                        }
+                    }
+
+                    const numdocIdentificacaoInput = document.getElementById('numdocIdentificacao');
+                    numdocIdentificacaoInput.addEventListener('input', listarPerfis);
+                });
+            </script>
+            <form onsubmit="listarPerfis(event)">
+                <div class="inputBox utilizado">
+                    <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" required>
+                    <label for="numdocIdentificacao">Introduza o número de identificação:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Listar Perfis</button>
+            </form>
+            <a href="AssociarPerfis.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Anúncios de Alteração de Rota</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Anúncios de Alteração de Rota</h2>
+            <ul id="anunciosList"></ul>
+            <a href="AdicionarAnuncioDeAlteracaoDeRota.html" class="botao-voltaradd">Voltar</a>
+            <script>
+                fetch('../anunciosdeAlteracaoDeRotas.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        const anuncios = data.split('\n');
+                        const anunciosList = document.getElementById('anunciosList');
+            
+                        anuncios.forEach(anuncio => {
+                            const anuncioObj = anuncio.match(/AnunciodeAlteracaodeRota{paragemAlterada=Paragem{nome='(.+?)', rua='(.+?)', nParagem='(.+?)'.*?Percursos{id=(.+?), origem=(.+?), destino=(.+?)}]}}, percursoAlterado=Percursos{id=(.+?), origem=(.+?), destino=(.+?)}, idAlteracao='(.+?)', motivo='(.+?)'/);
+                            if (anuncioObj) {
+                                const li = document.createElement('li');
+                                li.textContent = `Nome: ${anuncioObj[1]}, Rua: ${anuncioObj[2]}, NParagem: ${anuncioObj[3]}, Percursos: ID: ${anuncioObj[4]}, Origem: ${anuncioObj[5]}, Destino: ${anuncioObj[6]}, Percurso Alterado: ID: ${anuncioObj[7]}, Origem: ${anuncioObj[8]}, Destino: ${anuncioObj[9]}, ID Alteracao: ${anuncioObj[10]}, Motivo: ${anuncioObj[11]}`;
+                                anunciosList.appendChild(li);
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

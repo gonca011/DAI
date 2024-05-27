@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AlterarPercursos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Alterar Percurso de Paragem</h2>
+        <form action="http://localhost:8080/alterarPercurso" method="post">
+            <div class="inputBox utilizado ">
+                <input type="text" id="nParagem" name="nParagem" required>
+                <label for="nParagem">Número da Paragem:</label>
+            </div>
+            <div class="inputBox utilizado ">
+                <input type="text" id="oldId" name="oldId" required>
+                <label for="oldId">ID do Percurso a Remover:</label>
+            </div>
+            <div class="inputBox utilizado ">
+                <input type="text" id="newId" name="newId" required>
+                <label for="newId">ID do Percurso a Adicionar:</label>
+            </div>
+            <button type="submit" class="botao-proximo1">Alterar</button>
+        </form>
+        <a class="botao-voltarad" href="AdicionarParagem.html">Voltar</a>
+        <a class="tirarsub" href="RemoverPercursosParagem.html">Remover Percursos </a>
+    </div>
+    <div class="boxRegisto">
+        <h2>Lista atual de Percursos</h2>
+        <ul id="percursosList"></ul>
+        <script>
+            fetch('http://localhost:8080/listaPercursos')
+                .then(response => response.json()) // <<< Corrigido: Usar .json()
+                .then(data => {
+                    const percursos = data;
+                    const percursosList = document.getElementById('percursosList');
+                    console.log(percursos);
+                    percursos.forEach(percurso => {
+                        const li = document.createElement('li');
+                        li.textContent = `ID: ${percurso.id}, Origem: ${percurso.origem}, Destino: ${percurso.destino}`;
+                        percursosList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html
+><html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Horário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Editar Horário</h2>
+        <form action="http://localhost:8080/updateScheduleAtraso" method="post">
+            <div class="inputBox">
+                <label for="scheduleId">ID do Horário:</label><br>
+                <input type="number" id="scheduleId" name="scheduleId" required>
+            </div>
+            <div class="inputBox">
+                <label for="percurso">Percurso:</label><br>
+                <input type="text" id="percurso" name="idPercurso" required>
+            </div>
+            <div class="inputBox">
+                <label for="scheduleTime">Horário:</label><br>
+                <input type="time" id="scheduleTime" name="scheduleTime" required>
+            </div>
+            <div class="inputBox">
+                <label for="atraso">Anúncio de Atraso:</label><br>
+                <input type="text" id="atraso" name="idAtraso">
+            </div>
+            <input type="submit" value="Editar" class="botao-proximo">
+        </form>
+        <a class="botao-voltarad" href="AdicionarHorario.html">Voltar </a>
+        <a class="tirarsub" href="RemoverHorario.html">Remover Horário /</a>
+        <a class="tirarsub" href="AdicionarHorario.html">Adicionar Horário /</a>
+        <a class="tirarsub" href="ListarHorario.html">Listar Horário</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Autocarro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Adicionar Autocarro</h2>
+        <header>
+            <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+            <button type="button" class="botao-definicoes" onclick="definicoes()" id="botaoDefinicoes"></button>
+            <button type="button" class="botao-ajuda" onclick="ajuda()" id="botaoAjuda"></button>
+        </header>
+        <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+            <a class="box1g" href="AssociarPerfis.html"></a>
+            <a class="box2g" href="AdicionarAutocarros.html"></a>
+            <a class="box3g" href="AdicionarAnunciosDeAtraso.html"></a>
+            <a class="box4g" href="AdicionarAnuncioDeAlteracaoDeRota.html"></a>
+            <a class="box5g" href="AdicionarPercursos.html"></a>
+            <a class="box6g" href="AdicionarHorario.html"></a>
+            <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+            <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+            <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+        </div>
+        <form action="http://localhost:8080/addAutocarro" method="post">
+            <div class="inputBox">
+                <label for="matricula">Matrícula:</label><br>
+                <input type="matricula" id="matricula" name="matricula" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="capacidade">Capacidade:</label><br>
+                <input type="number" id="capacidade" name="capacidade" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="numKm">Nº de Km:</label><br>
+                <input type="number" id="numKm" name="numKm" autocomplete="off" required>
+            </div>
+            <input type="submit" value="Guardar" class="botao-proximo">
+        </form>
+        <a class="botao-voltarad"  href="PaginaGestorDeFrota.html">Voltar </a>
+        <a class="tirarsub"href="RemoverAutocarros.html">Remover Autocarro /</a>
+        <a class="tirarsub"href="EditarAutocarros.html">Editar Autocarro /</a>
+        <a class="tirarsub"href="ListarAutocarros.html">Listar Autocarro</a>
+    </div>
+    <script>
+        function definicoes() {
+         window.location.href = "definicoes.html";
+     }
+     function ajuda() {
+         window.location.href = "Coapoioaocliente.html";
+     }
+     function terminar() {
+         fetch('http://localhost:8080/apagarLinhaGestorFrota', {
+             method: 'POST',
+         })
+             .then(response => {
+                 if (!response.ok) {
+                     throw new Error('Network response was not ok');
+                 }
+                 window.location.href = "../Paginainicial.html";
+             })
+             .catch(error => {
+                 console.error('There has been a problem with your fetch operation:', error);
+             });
+     }
+     function toggleMenu() {
+         var menu = document.getElementById("menuLateral");
+         var botaoDefinicoes = document.getElementById("botaoDefinicoes");
+         var botaoAjuda = document.getElementById("botaoAjuda");
+         var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+         var botaoAjudaL = document.getElementById("botaoAjudaL");
+         var botaoTerminar = document.getElementById("botaoterminar");
+
+         if (menu.style.left === "-250px") {
+             menu.style.left = "0";
+             botaoDefinicoes.style.display = "none";
+             botaoAjuda.style.display = "none";
+             botaoDefinicoesL.style.display = "block";
+             botaoAjudaL.style.display = "block";
+             botaoTerminar.style.display = "block";
+         } else {
+             menu.style.left = "-250px";
+             botaoDefinicoes.style.display = "block";
+             botaoAjuda.style.display = "block";
+             botaoterminar.style.display = "none";
+             botaoDefinicoesL.style.display = "none";
+             botaoAjudaL.style.display = "none";
+         }
+     }
+ </script>
+</body>
+
+</html>

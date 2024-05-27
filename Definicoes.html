@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definições</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="boxdefinicoesback">
+    <nav class="boxdefinicoes">
+        <i class="letradef">Definições</i>
+        <button type="button" class="botao-volar2" onclick="menu()"></button>
+        <nav class="boxdefinicoesG">
+            <p class="letrae">GERAL</p>
+            <p class="letram">Idioma</p>
+            <p class="letrad">Do telemóvel</p>
+        </nav>
+
+        <nav class="boxdefinicoesA">
+            <p class="letrae">ACESSIBILIDADE</p>
+            <p class="letram">Facilidade de Acesso</p>
+            <p class="letradh">Exibe recursos de acesso em toda a rede</p>
+            <input type="checkbox" id="chk" />
+            <label for="chk" class="switch">
+                <span class="slider"></span>
+            </label>
+        </nav>
+
+        <nav class="boxdefinicoesA1">
+            <p class="letramm">Leitura de horários</p>
+            <p class="letradh">Os horários das próximas passagens são pronunciados pela síntese de fala</p>
+            <input type="checkbox" id="chk1" />
+            <label for="chk1" class="switch1">
+                <span class="slider1"></span>
+            </label>
+        </nav>
+        <nav class="boxdefinicoesA2">
+            <p class="letramm">Acessibilidade ao meu redor</p>
+            <p class="letradh">As paragens mais próximas e os horários das próximas passagens são pronunciados pela
+                síntese de fala no início do aplicativo</p>
+            <input type="checkbox" id="chk2" />
+            <label for="chk2" class="switch2">
+                <span class="slider2"></span>
+            </label>
+        </nav>
+        <nav class="boxdefinicoescerca">
+            <p class="letrae">ACERCA DE</p>
+            <p class="letram">Termos Legais</p>
+        </nav>
+        <nav class="boxdefinicoest">
+            <p class="letramm">Abrir Fontes de Bibliotecas</p>
+        </nav>
+        <nav class="boxdefinicoesv">
+            <p class="letram">Versão da TUB</p>
+            <p class="letradh">5.4(2710.0)</p>
+        </nav>
+    </nav>
+    <script>
+        function menu() {
+            window.location.href = "PaginaGestorDeFrota.html";
+        } 
+    </script>
+</body>
+
+</html>

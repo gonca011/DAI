@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Anuncio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Editar Anuncio</h2>
+            <form action="http://localhost:8080/editarAnuncio" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="idAtraso" name="idAtraso" required>
+                    <label for="idAtraso">ID do Anuncio</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="tempoAtraso" required>
+                    <label for="tempoAtraso">Tempo de Atraso</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="motivoAtraso" required>
+                    <label for="motivoAtraso">Motivo do Atraso</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+        </div>
+        <div class="boxRegisto2d">
+            <a href="AdicionarAnunciosDeAtraso.html" class="botao-voltaradd">Voltar</a>
+            <h2>Lista atual de Anuncios de Atraso</h2>
+            <ul id="anunciosList"></ul>
+            <script>
+                fetch('http://localhost:8080/listarAnuncios')
+                    .then(response => response.json())
+                    .then(anuncios => {
+                        const anunciosList = document.getElementById('anunciosList');
+                        anuncios.forEach(anuncio => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `ID: ${anuncio.idAtraso}, Motivo: ${anuncio.motivoAtraso}, Tempo Atraso: ${anuncio.tempoAtraso}`;
+                            anunciosList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+        </div>
+
+</body>
+
+</html>

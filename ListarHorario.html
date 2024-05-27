@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Horários</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Listar Horários</h2>
+        <div id="scheduleList" class="inputBox"></div>
+        <a class="botao-voltarad" href="AdicionarHorario.html">Voltar </a>
+        <a class="tirarsub" href="AdicionarHorario.html">Adicionar Horário /</a>
+        <a class="tirarsub" href="EditarHorario.html">Editar Horário /</a>
+        <a class="tirarsub" href="RemoverHorario.html">Remover Horário</a>
+    </div>
+
+    <script>
+        fetch('http://localhost:8080/listSchedules')
+            .then(response => response.json())
+            .then(schedules => {
+                const scheduleList = document.getElementById('scheduleList');
+                scheduleList.innerHTML = schedules.map(schedule => `
+                    <div>
+                        <h3>ID: ${schedule.id}</h3>
+                        <p>Percurso: ${schedule.percurso.origem} - ${schedule.percurso.destino}</p>
+                        <p>Horário: ${schedule.schedule}</p>
+                        <p>Anúncio de Atraso: ${schedule.anuncioDeAtraso}</p>
+                    </div>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
