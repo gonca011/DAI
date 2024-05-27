@@ -25,7 +25,7 @@
     </nav>
     <div>
         <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
+        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Resultados</button>
         <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
     </div>
     <div>
@@ -106,34 +106,38 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
-            .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
 
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
+        window.onload = function () {
+            var boxes = ['BoxH1', 'BoxH2', 'BoxH3'];
 
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
-                    // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
-
-                        // Increment the box counter
-                        boxCounter++;
+            fetch('http://localhost:8080/ordPercursos') // Replace with your actual API endpoint
+                .then(response => response.json()) // Assuming the server returns JSON
+                .then(percursos => {
+                    for (var i = 0; i < boxes.length; i++) {
+                        var box = document.querySelector('.' + boxes[i]);
+                        if (box && percursos[i]) {
+                            var percurso = percursos[i];
+                            // Assuming the percurso object has 'id', 'origem', and 'destino' properties
+                            box.textContent = `ID: ${percurso.id}, Origem: ${percurso.origem}, Destino: ${percurso.destino}`;
+                        }
                     }
-                }
-            });
+                });
+        }
+
+        function procura() {
+            var searchValue = document.querySelector('.boxescreverpesquisa').value;
+
+            fetch(`http://localhost:8080/procPercursos?destino=${encodeURIComponent(searchValue)}`) // Include searchValue as query parameter
+                .then(response => response.json()) // Assuming the server returns JSON
+                .then(percursos => {
+                    // Store the percursos in localStorage
+                    localStorage.setItem('filteredPercursos', JSON.stringify(percursos));
+
+                    // Redirect to the Favoritos.html page
+                    window.location.href = 'Favoritos.html';
+                })
+                .catch(error => console.error('Error:', error));
+        }
     </script>
 </body>
 

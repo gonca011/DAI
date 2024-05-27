@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario e Percusos</title>
+    <title>Escolher Promoções </title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -13,25 +13,14 @@
 <body class="backgrouninformaçoes ">
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
-        <nav class="Percursogrande">
-            <i class="percurso">Horários e Percursos</i>
+        <nav class="esolherpremio">
+            <i class="centrarm">Escolher Prémios </i>
         </nav>
     </nav>
-    <nav>
-        <input type="text" class="boxescreverpesquisa" placeholder="Filtrar linha...">
-        <button type="button" class="botao-circular" onclick="procura()"></button>
-        <i class="centrarlinhas">Linhas</i>
-        <button class="botao-voltarh" onclick="voltarh()"></button>
-    </nav>
     <div>
-        <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
-        <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
-    </div>
-    <div>
-        <div class="BoxH1"></div>
-        <div class="BoxH2"></div>
-        <div class="BoxH3"></div>
+        <div class="boxescolherpre1"></div>
+        <div class="boxescolherpre2"></div>
+        <div class="boxescolherpre3"></div>
     </div>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
         <a class="box1" href="Menuviagens.html"></a>
@@ -49,24 +38,21 @@
     </div>
     <script>
         /*Menu */
-        function Todasaslinhas() {
-            window.location.href = "Todasaslinhas.html";
+        function customizadopromo() {
+            window.location.href = "Customizadopromo.html";
         }
-        function Favoritos() {
-            window.location.href = "Favoritos.html";
+        function customizadopremios() {
+            window.location.href = "Customizadopremios.html";
         }
-        function Tarifarios() {
-            window.location.href = "Tarifarios.html";
-        }
-        function voltarh() {
-            window.location.href = "Paginautilizador.html";
+        function voltara() {
+            window.location.href = "Menupremios.html";
         }
         /*Menu lateral*/
         function definicoes() {
             window.location.href = "definicoes.html";
         }
         function ajuda() {
-            window.location.href = "informacoes.html";
+            window.location.href = "Coapoioaocliente.html";
         }
         function terminar() {
             fetch('http://localhost:8080/apagarLinhaCliente', {
@@ -106,33 +92,33 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
+        fetch('http://localhost:8080/listarPremios')
             .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
+            .then(premios => {
+                // Get the boxes where you want to display the prizes
+                let boxes = [
+                    document.querySelector('.boxescolherpre1'),
+                    document.querySelector('.boxescolherpre2'),
+                    document.querySelector('.boxescolherpre3')
+                ];
 
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
-
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
+                // Iterate over the premios array
+                for (let i = 0; i < premios.length; i++) {
                     // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
+                    if (boxes[i]) {
+                        // Set the textContent of the box to the prize details
+                        boxes[i].textContent = `Nome: ${premios[i].nome}, Descrição: ${premios[i].descricao}, Critério de Atribuição: ${premios[i].criteriodeAtribuicao}, ID: ${premios[i].id}`;
 
-                        // Increment the box counter
-                        boxCounter++;
+                        // Add an onclick event to the box
+                        boxes[i].onclick = function () {
+                            // Redirect to the DetalhesPremio.html page with the premio id as a query parameter
+                            window.location.href = `DetalhesPremio.html?id=${premios[i].id}`;
+                        }
                     }
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
     </script>
 </body>

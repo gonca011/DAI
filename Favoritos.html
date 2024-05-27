@@ -25,7 +25,7 @@
     </nav>
     <div>
         <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
+        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Resultados</button>
         <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
     </div>
     <div>
@@ -106,34 +106,33 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
-            .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
 
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
 
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
-                    // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
+        window.onload = function () {
+            var boxes = ['BoxH1', 'BoxH2', 'BoxH3'];
 
-                        // Increment the box counter
-                        boxCounter++;
-                    }
+            // Get the filtered percursos from localStorage
+            var filteredPercursos = JSON.parse(localStorage.getItem('filteredPercursos'));
+
+            for (var i = 0; i < boxes.length; i++) {
+                var box = document.querySelector('.' + boxes[i]);
+                if (box && filteredPercursos[i]) {
+                    var percurso = filteredPercursos[i];
+                    box.textContent = `ID: ${percurso.id}, Origem: ${percurso.origem}, Destino: ${percurso.destino}`;
+
+                    // Add an event listener to the box
+                    box.addEventListener('click', (function (percursoCopy) {
+                        return function () {
+                            // Store the details of the clicked percurso in localStorage
+                            localStorage.setItem('selectedPercurso', JSON.stringify(percursoCopy));
+
+                            // Redirect to the DetalhesPercurso.html page
+                            window.location.href = 'DetalhesPercurso.html';
+                        };
+                    })(percurso));
                 }
-            });
+            }
+        }
     </script>
 </body>
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu consultar pontos</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="Moedasconsultar">
+            <i class="centrarm">Prémios e Promoções</i>
+        </nav>
+    </nav>
+    <div>
+        <button type="button" class="botao-customizadopromo" onclick="customizadopromo()">Escolher Promoções</button>
+        <button type="button" class="botao-customizadopremios" onclick="customizadopremios()">Escolher Prémios </button>
+    </div>
+    <header>
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <button type="button" class="botao-definicoes" onclick="definicoes()" id="botaoDefinicoes" style="display: none;"></button>
+        <button type="button" class="botao-ajuda" onclick="ajuda()" id="botaoAjuda" style="display: none;"></button>
+    </header>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1" href="Menuviagens.html"></a>
+        <a class="box2" href="Horariospercursos.html"></a>
+        <a class="box3" href="Menuconsultarpontos.html"></a>
+        <a class="box4" href="Menuativarpontos.html"></a>
+        <a class="box5" href="Menupremios.html"></a>
+        <a class="box6" href="Areaclientemostrardados.html"></a>
+        <a  class="box7" href="Paginautilizador.html"></a>
+        <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+        <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+        <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+    </div>
+    <script>
+        /*Menu */
+        function customizadopromo() {
+            window.location.href = "Customizadopromo.html";
+        }
+        function customizadopremios() {
+            window.location.href = "Customizadopremios.html";
+        }
+        function voltarc() {
+            window.location.href = "Paginautilizador.html";
+        }
+        /*Menu lateral*/
+        function definicoes() {
+        window.location.href = "definicoes.html";
+        }
+        function ajuda() {
+        window.location.href = "Coapoioaocliente.html";
+        }
+        function terminar() {
+            fetch('http://localhost:8080/apagarLinhaCliente', {
+                method: 'POST',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    window.location.href = "../Paginainicial.html";
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menuLateral");
+            var botaoDefinicoes = document.getElementById("botaoDefinicoes");
+            var botaoAjuda = document.getElementById("botaoAjuda");
+            var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+            var botaoAjudaL = document.getElementById("botaoAjudaL");
+            var botaoTerminar = document.getElementById("botaoterminar");
+
+            if (menu.style.left === "-250px") {
+                menu.style.left = "0";
+                botaoDefinicoes.style.display = "none";
+                botaoAjuda.style.display = "none";
+                botaoDefinicoesL.style.display = "block";
+                botaoAjudaL.style.display = "block";
+                botaoTerminar.style.display = "block";
+            } else {
+                menu.style.left = "-250px";
+                botaoDefinicoes.style.display = "block";
+                botaoAjuda.style.display = "block";
+                botaoterminar.style.display = "none";
+                botaoDefinicoesL.style.display = "none";
+                botaoAjudaL.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>

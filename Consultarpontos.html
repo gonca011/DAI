@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario e Percusos</title>
+    <title>Menu consultar pontos </title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -13,25 +13,17 @@
 <body class="backgrouninformaçoes ">
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
-        <nav class="Percursogrande">
-            <i class="percurso">Horários e Percursos</i>
+        <nav class="Moedasconsultar">
+            <i class="centrarm">O seu total de pontos</i>
         </nav>
-    </nav>
-    <nav>
-        <input type="text" class="boxescreverpesquisa" placeholder="Filtrar linha...">
-        <button type="button" class="botao-circular" onclick="procura()"></button>
-        <i class="centrarlinhas">Linhas</i>
-        <button class="botao-voltarh" onclick="voltarh()"></button>
+
     </nav>
     <div>
-        <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
-        <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
-    </div>
-    <div>
-        <div class="BoxH1"></div>
-        <div class="BoxH2"></div>
-        <div class="BoxH3"></div>
+        <div class="boxconsultarpontos">
+        </div>
+        <button class="botao-voltarh" onclick="voltarm()"></button>
+        <button type="button" class="botao-voltarcon" onclick="voltarcon()">
+            < Voltar</button>
     </div>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
         <a class="box1" href="Menuviagens.html"></a>
@@ -49,16 +41,16 @@
     </div>
     <script>
         /*Menu */
-        function Todasaslinhas() {
-            window.location.href = "Todasaslinhas.html";
+        function voltarm() {
+            window.location.href = "Menuconsultarpontos.html";
         }
-        function Favoritos() {
-            window.location.href = "Favoritos.html";
+        function consultaru() {
+            window.location.href = "Cultimos.html";
         }
-        function Tarifarios() {
-            window.location.href = "Tarifarios.html";
+        function consultarp() {
+            window.location.href = "Consultarpontos.html";
         }
-        function voltarh() {
+        function voltarcon() {
             window.location.href = "Paginautilizador.html";
         }
         /*Menu lateral*/
@@ -66,7 +58,7 @@
             window.location.href = "definicoes.html";
         }
         function ajuda() {
-            window.location.href = "informacoes.html";
+            window.location.href = "Coapoioaocliente.html";
         }
         function terminar() {
             fetch('http://localhost:8080/apagarLinhaCliente', {
@@ -106,34 +98,14 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
+        fetch('http://localhost:8080/getPontos')
             .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
+            .then(data => {
+                const pontosDiv = document.querySelector('.boxconsultarpontos');
+                pontosDiv.textContent = `Pontos: ${data}`;
+            })
+            .catch(error => console.error('Error:', error));
 
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
-
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
-                    // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
-
-                        // Increment the box counter
-                        boxCounter++;
-                    }
-                }
-            });
     </script>
 </body>
 

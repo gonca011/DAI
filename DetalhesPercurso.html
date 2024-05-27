@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario e Percusos</title>
+    <title>Detalhes do Percurso</title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -18,21 +18,15 @@
         </nav>
     </nav>
     <nav>
-        <input type="text" class="boxescreverpesquisa" placeholder="Filtrar linha...">
-        <button type="button" class="botao-circular" onclick="procura()"></button>
-        <i class="centrarlinhas">Linhas</i>
+        <i class="centrarlinhas">Detalhes do Percurso</i>
         <button class="botao-voltarh" onclick="voltarh()"></button>
     </nav>
-    <div>
-        <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
-        <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
-    </div>
     <div>
         <div class="BoxH1"></div>
         <div class="BoxH2"></div>
         <div class="BoxH3"></div>
     </div>
+
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
         <a class="box1" href="Menuviagens.html"></a>
         <a class="box2" href="Horariospercursos.html"></a>
@@ -48,26 +42,54 @@
             style="display: none;">Terminar sessão</button>
     </div>
     <script>
-        /*Menu */
-        function Todasaslinhas() {
-            window.location.href = "Todasaslinhas.html";
+          function voltarh() {
+            window.location.href = "Horariospercursos.html";
         }
-        function Favoritos() {
-            window.location.href = "Favoritos.html";
-        }
-        function Tarifarios() {
-            window.location.href = "Tarifarios.html";
-        }
-        function voltarh() {
-            window.location.href = "Paginautilizador.html";
-        }
-        /*Menu lateral*/
+        window.onload = function () {
+            // Get the details of the selected percurso from localStorage
+            var selectedPercurso = JSON.parse(localStorage.getItem('selectedPercurso'));
+
+            // Get the element where you want to display the details
+            var box = document.querySelector('.centrarlinhas');
+            if (box && selectedPercurso) {
+                // Append the details to the existing text content of the element
+                box.textContent += ` ID: ${selectedPercurso.id}, Origem: ${selectedPercurso.origem}, Destino: ${selectedPercurso.destino}`;
+            }
+
+            // Fetch the paragem data from the server
+            fetch(`http://localhost:8080/paragensDoPercurso/${selectedPercurso.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    // data is now a list of Paragem objects associated with the Percurso
+
+                    // Get the boxes where you want to display the details
+                    var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
+
+                    // Initialize a counter for the boxes
+                    var boxCounter = 0;
+
+                    // Iterate over the Paragem data array
+                    for (var i = 0; i < data.length; i++) {
+                        // Check if the box exists
+                        if (boxes[boxCounter]) {
+                            // Set the text content of the box to the details
+                            boxes[boxCounter].textContent = `Id: ${data[i].nParagem}, Nome: ${data[i].nome}`;
+
+                            // Increment the box counter
+                            boxCounter++;
+                        }
+                    }
+                });
+        };
+    
         function definicoes() {
             window.location.href = "definicoes.html";
         }
+
         function ajuda() {
-            window.location.href = "informacoes.html";
+            window.location.href = "Coapoioaocliente.html";
         }
+
         function terminar() {
             fetch('http://localhost:8080/apagarLinhaCliente', {
                 method: 'POST',
@@ -106,35 +128,7 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
-            .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
 
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
-
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
-                    // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
-
-                        // Increment the box counter
-                        boxCounter++;
-                    }
-                }
-            });
     </script>
 </body>
-
 </html>

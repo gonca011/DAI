@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resgatar Promoção</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Resgatar Promoção</h2>
+            <div class="inputBox utilizado">
+                <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" required>
+                <label for="numdocIdentificacao">Introduza a sua palavra-passe:</label>
+            </div>
+            <button onclick="redeemPromocao()" class="botao-proximo1">Resgatar Promoção</button>
+            <a href="Customizadopromo.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParameter(name) {
+            var params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        function redeemPromocao() {
+            var numdocIdentificacao = document.getElementById('numdocIdentificacao').value;
+            var promocaoId = getQueryParameter('id');
+
+            fetch('http://localhost:8080/redeemPromocao', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'utilizadorNdoc': numdocIdentificacao,
+                    'promocaoId': promocaoId
+                }),
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

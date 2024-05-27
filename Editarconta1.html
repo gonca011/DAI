@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario e Percusos</title>
+    <title>Area de Cliente</title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -13,26 +13,10 @@
 <body class="backgrouninformaçoes ">
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
-        <nav class="Percursogrande">
-            <i class="percurso">Horários e Percursos</i>
+        <nav class="Apoiogrande">
+            <i class="areacliente">Área De Cliente</i>
         </nav>
     </nav>
-    <nav>
-        <input type="text" class="boxescreverpesquisa" placeholder="Filtrar linha...">
-        <button type="button" class="botao-circular" onclick="procura()"></button>
-        <i class="centrarlinhas">Linhas</i>
-        <button class="botao-voltarh" onclick="voltarh()"></button>
-    </nav>
-    <div>
-        <button type="button" class="botao-todasaslinhas " onclick="Todasaslinhas()">Todas as linhas</button>
-        <button type="button" class="botao-Favoritos" onclick="Favoritos()">Favoritos</button>
-        <button type="button" class="botao-Tarifarios" onclick="Tarifarios()">Horários</button>
-    </div>
-    <div>
-        <div class="BoxH1"></div>
-        <div class="BoxH2"></div>
-        <div class="BoxH3"></div>
-    </div>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
         <a class="box1" href="Menuviagens.html"></a>
         <a class="box2" href="Horariospercursos.html"></a>
@@ -47,26 +31,47 @@
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar"
             style="display: none;">Terminar sessão</button>
     </div>
+    <div class="boxcomercial1">
+        <form action="http://localhost:8080/editarConta1" method="post">
+            <nav class="conteudoboxcontainer ">
+                <div class="container">
+                    <nav class="nome-do-cliente ">Identificação Pessoal</nav>
+                    <div class="inputboxv1a ">
+                        <label for="nome">Nome</label><br>
+                        <input type="text" id="nome" name="nome" autocomplete="off" autofocus="" required>
+                    </div>
+                    <div class="inputboxv2a">
+                        <label for="dataNascimento">Data de Nascimento</label><br>
+                        <input type="text" id="dataNascimento" name="dataNascimento" autocomplete="off" autofocus="" required>
+                    </div>
+                    <div class="inputboxv3a">
+                        <label for="nif">NIF</label><br>
+                        <input type="text" id="nif" name="nif" autocomplete="off" autofocus="" required>
+                    </div>
+                    <div class="inputboxv4a">
+                        <label for="numdocIdentificacao">Nº Doc. Identificação</label><br>
+                        <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" autocomplete="off" autofocus=""
+                            required>
+                    </div>
+            </nav>
+    </div>
+    </form>
+    <button type="button" class="botao-proximoed1v1" onclick="Areac()">Voltar</button>
+    <button type="submit"  value="Submit"  class="botao-proximoed11" onclick="Editarc2()">Proximo</button>
+    </div>
     <script>
-        /*Menu */
-        function Todasaslinhas() {
-            window.location.href = "Todasaslinhas.html";
+        function Areac() {
+            window.location.href = "Areaclientemostrardados.html"
         }
-        function Favoritos() {
-            window.location.href = "Favoritos.html";
-        }
-        function Tarifarios() {
-            window.location.href = "Tarifarios.html";
-        }
-        function voltarh() {
-            window.location.href = "Paginautilizador.html";
+        function Editarc2() {
+            window.location.href = "Editarconta2.html"
         }
         /*Menu lateral*/
         function definicoes() {
             window.location.href = "definicoes.html";
         }
         function ajuda() {
-            window.location.href = "informacoes.html";
+            window.location.href = "Coapoioaocliente.html";
         }
         function terminar() {
             fetch('http://localhost:8080/apagarLinhaCliente', {
@@ -106,35 +111,6 @@
                 botaoAjudaL.style.display = "none";
             }
         }
-        fetch('http://localhost:8080/listSchedules')
-            .then(response => response.json())
-            .then(schedules => {
-                // Get the boxes where you want to display the schedules
-                var boxes = [document.querySelector('.BoxH1'), document.querySelector('.BoxH2'), document.querySelector('.BoxH3')];
-
-                // Initialize a counter for the boxes
-                var boxCounter = 0;
-
-                // Iterate over the schedules array
-                for (var i = 0; i < schedules.length; i++) {
-                    // Check if the box exists
-                    if (boxes[boxCounter]) {
-                        // Set the innerHTML of the box to the schedule details
-                        boxes[boxCounter].innerHTML = `
-                    <div>
-                        <h3>ID: ${schedules[i].id}</h3>
-                        <p>Percurso: ${schedules[i].percurso.origem} - ${schedules[i].percurso.destino}</p>
-                        <p>Horário: ${schedules[i].schedule}</p>
-                        <p>Anúncio de Atraso: ${schedules[i].anuncioDeAtraso ? 'Motivo: ' + schedules[i].anuncioDeAtraso.motivoAtraso + ', Tempo: ' + schedules[i].anuncioDeAtraso.tempoAtraso : 'Sem atrasos'}</p>
-                    </div>
-                `;
-
-                        // Increment the box counter
-                        boxCounter++;
-                    }
-                }
-            });
     </script>
-</body>
 
 </html>
