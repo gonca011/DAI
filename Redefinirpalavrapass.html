@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir  Palavra-passe </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+
+</head>
+<body class="fundo">
+    <div class="boxRegisto">
+        <img src="Img/adionar.png" alt="adicionar" class="centrado">
+        <h2>Redefinir Palavra-passe </h2>
+        <form action="http://localhost:8080/submitForm" method="post">
+            <div class="inputBox utilizado">
+                <input type="text" name="Endereço de Email" autocomplete="off" autofocus="" required>
+                <label for="">Endereço de Email</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="Nova Password" autocomplete="off" autofocus="" required>
+                <label for="">Nova Password</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="Confirmar Nova Password" autocomplete="off" autofocus="" required>
+                <label for="">Confirmar Nova Password</label>
+            </div>
+        <BUtton type="submit" value="Próximo" class="botao-proximo2" onclick="confirmar()"> Confirmar</BUtton>
+        <h2 class="novo-utilizador"> Novo utilizador?</h2>
+        <BUtton type="submit" value="Próximo" class="botao-proximo2" onclick="criarocnta()">Crie uma conta</BUtton>
+    <SCript>
+        function confirmar() {
+            window.location.href = "Confirmacao.html"
+        }
+        function criarocnta() {
+            window.location.href = "Registese.html"
+        }
+    </SCript>
+</body>
+</html>
