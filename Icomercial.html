@@ -19,8 +19,13 @@
         </nav>
     </nav>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
-        <a class="box1m" href="../Motorista/AssociarPerfis.html"></a>
-        <a class="box2m" href="/*A Fazer*/"></a>
+        <a class="box1" href="Menuviagens.html"></a>
+        <a class="box2" href="Horariospercursos.html"></a>
+        <a class="box3" href="Menuconsultarpontos.html"></a>
+        <a class="box4" href="Menuativarpontos.html"></a>
+        <a class="box5" href="Menupremios.html"></a>
+        <a class="box6" href="Areaclientemostrardados.html"></a>
+        <a  class="box7" href="Paginautilizador.html"></a>
         <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
         <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
@@ -66,7 +71,7 @@
     <script>
         /*Funcional */
         function voltar() {
-            window.location.href = "../Paginautilizador.html";
+            window.location.href = "../Utilizador/Paginautilizador.html";
         }
         function proximo() {
             window.location.href = "Itransporte.html";
@@ -82,13 +87,13 @@
         }
         /*Menu lateral*/
         function definicoes() {
-        window.location.href = "../Motorista/definicoes.html";
+        window.location.href = "../Utilizador/definicoes.html";
         }
         function ajuda() {
-        window.location.href = "../Motorista/Coapoioaocliente.html";
+        window.location.href = "../Utilizador/Coapoioaocliente.html";
         }
         function terminar() {
-            fetch('http://localhost:8080/apagarLinhaMotorista', {
+            fetch('http://localhost:8080/apagarLinhaAdministrador', {
                 method: 'POST',
             })
                 .then(response => {
@@ -107,7 +112,6 @@
             var botaoAjudaL = document.getElementById("botaoAjudaL");
             var botaoTerminar = document.getElementById("botaoterminar");
 
-
             if (menu.style.left === "-250px") {
                 menu.style.left = "0";
                 botaoDefinicoesL.style.display = "block";
@@ -125,5 +129,4 @@
         }
     </script>
 </body>
-
 </html>
