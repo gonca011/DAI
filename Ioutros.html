@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transporte de Passageiros</title>
+    <title>Outros</title>
     <link rel="stylesheet" href="Centrar.css">
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
@@ -11,8 +11,8 @@
 <body class="backgrouninformaçoes ">
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
-        <nav class="gradreclamacao">
-            <i class="reclamacao">Reclamação</i>
+        <nav class="Infgrande">
+            <i class="informacao">INFORMAÇÃO</i>
             <h6 class="apoio">APOIO AO CLIENTE</h6>
         </nav>
     </nav>
@@ -29,57 +29,48 @@
                 <div class="botaoquadrado" onclick="toggleCheck(this)">
                     <span class="checkmark">&#10003;</span>
                 </div>
-                <p class="conteudobox">Motoristas</p>
+                <p class="conteudobox">Proteção de Dados</p>
                 <div class="botaoquadrado1" onclick="toggleCheck(this)">
                     <span class="checkmark">&#10003;</span>
                 </div>
-                <p class="conteudobox">Revisores </p>
+                <p class="conteudobox">Perdidos e Achados</p>
                 <div class="botaoquadrado2" onclick="toggleCheck(this)">
                     <span class="checkmark">&#10003;</span>
                 </div>
-                <p class="conteudobox"> Atraso / Falta carreiras</p>
-                <div class="botaoquadrado3" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Condução</p>
-                <div class="botaoquadrado4" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Abrigos/Paragens</p>
-                <div class="botaoquadrado5" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Viaturas</p>
+                <p class="conteudobox">Outro</p>
             </div>
         </nav>
-    <button type="button" class="botao-voltarbranco" onclick="Rvoltar()">&lt; Voltar</button>
-    <button type="button" class="botao-proximoazul" onclick="Rproximo()">Próximo &gt;</button>
+    <button type="button" class="botao-voltarbranco" onclick="voltar()">&lt; Voltar</button>
+    <button type="button" class="botao-proximoazul" onclick="proximo()">Próximo &gt;</button>
 </div>
 <div>
-    <button type="button" class="botao-comercial" onclick="Rcomercial()">Comercial</button>
-    <button type="button" class="botao-transporte" onclick="Rtransporte()">Transporte de Passageiros</button>
-    <button type="button" class="botao-estacionamento" onclick="Restacionamento()">Estacionamento Urbano</button>
-    <button type="button" class="botao-outros" onclick="Routros()">Outros</button>
+    <button type="button" class="botao-comercial" onclick="comercial()">Comercial</button>
+    <button type="button" class="botao-transporte" onclick="transporte()">Transporte de Passageiros</button>
+    <button type="button" class="botao-estacionamento" onclick="estacionamento()">Estacionamento Urbano</button>
+    <button type="button" class="botao-outros" onclick="outros()">Outros</button>
 </div>
 <script>
     /*Funcional */
-    function Rvoltar(){
-        window.location.href = "Rcomercial.html"
+    function voltar(){
+        window.location.href =  "Iestacionamento.html";
     }
-    function Rproximo(){
-        window.location.href ="Restacionamento.html"
+    function proximo(){
+        window.location.href ="../Motorista/Coapoioaocliente.html";
     } 
-    function Rcomercial(){
-        window.location.href = "Rcomercial.html";
+    function comercial(){
+        window.location.href = "Icomercial.html";
     }
-    function Rtransporte(){
-        window.location.href = "Rtransporte.html";
+     
+    function transporte(){
+        window.location.href = "Itransporte.html";
     }
-    function Restacionamento(){
-        window.location.href = "Restacionamento.html";
+
+    function estacionamento(){
+        window.location.href = "Iestacionamento.html";
     }
-    function Routros(){
-        window.location.href = "Routros.html";
+ 
+    function outros(){
+        window.location.href = "Ioutros.html";
     }
     /*Menu lateral*/
     function definicoes() {
@@ -88,7 +79,7 @@
         function ajuda() {
         window.location.href = "../Motorista/Coapoioaocliente.html";
         }
-        function terminar() {
+    function terminar() {
             fetch('http://localhost:8080/apagarLinhaMotorista', {
                 method: 'POST',
             })
@@ -121,9 +112,9 @@
                 botaoterminar.style.display = "none";
             }
         }
-     function toggleCheck(element) {
-        element.classList.toggle("checked");
-    }
+    function toggleCheck(element) {
+            element.classList.toggle("checked");
+        }
 </script>
 </body>
 </html>

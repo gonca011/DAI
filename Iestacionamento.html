@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="Caixas.css">
     <link rel="stylesheet" href="Botoes.css">
 </head>
-<body class="backgrouninformaçoes">
+
+<body class="backgrouninformaçoes ">
     <nav class="boxbackground">
         <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
-        <nav class="gradnopniao">
-            <i class="opinao">OPINIÃO/ SUGESTÃO</i>
+        <nav class="Infgrande">
+            <i class="informacao">INFORMAÇÃO</i>
             <h6 class="apoio">APOIO AO CLIENTE</h6>
         </nav>
     </nav>
@@ -24,61 +26,61 @@
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
     </div>
     <div class="boxcomercial">
-        <nav class="conteudoboxcontainer ">
-            <div class="container">
-                <div class="botaoquadrado" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
+            <nav class="conteudoboxcontainer ">
+                <div class="container">
+                    <div class="botaoquadrado" onclick="toggleCheck(this)">
+                        <span class="checkmark">&#10003;</span>
+                    </div>
+                    <p class="conteudobox">Avenças</p>
+                    <div class="botaoquadrado1" onclick="toggleCheck(this)">
+                        <span class="checkmark">&#10003;</span>
+                    </div>
+                    <p class="conteudobox">Agentes de Fiscalização </p>
+                    <div class="botaoquadrado2" onclick="toggleCheck(this)">
+                        <span class="checkmark">&#10003;</span>
+                    </div>
+                    <p class="conteudobox"> Sinalização Fiscalização</p>
+                    <div class="botaoquadrado3" onclick="toggleCheck(this)">
+                        <span class="checkmark">&#10003;</span>
+                    </div>
+                    <p class="conteudobox">Aviso de liquidação</p>
+                    <div class="botaoquadrado4" onclick="toggleCheck(this)">
+                        <span class="checkmark">&#10003;</span>
+                    </div>
+                    <p class="conteudobox">Parcómetros</p>
                 </div>
-                <p class="conteudobox">Avenças</p>
-                <div class="botaoquadrado1" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Agentes de Fiscalização </p>
-                <div class="botaoquadrado2" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox"> Sinalização Fiscalização</p>
-                <div class="botaoquadrado3" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Aviso de liquidação</p>
-                <div class="botaoquadrado4" onclick="toggleCheck(this)">
-                    <span class="checkmark">&#10003;</span>
-                </div>
-                <p class="conteudobox">Parcómetros</p>
-            </div>
-        </nav>
-        <button type="button" class="botao-voltarbranco" onclick="Ovoltar()">&lt; Voltar</button>
-        <button type="button" class="botao-proximoazul" onclick="Oproximo()">Próximo &gt;</button>
+            </nav>
+        <button type="button" class="botao-voltarbranco" onclick="voltar()">&lt; Voltar</button>
+        <button type="button" class="botao-proximoazul" onclick="proximo()">Próximo &gt;</button>
     </div>
     <div>
-        <button type="button" class="botao-comercial" onclick="Ocomercial()">Comercial</button>
-        <button type="button" class="botao-transporte" onclick="Otransporte()">Transporte de Passageiros</button>
-        <button type="button" class="botao-estacionamento" onclick="Oestacionamento()">Estacionamento Urbano</button>
-        <button type="button" class="botao-outros" onclick="Ooutros()">Outros</button>
+        <button type="button" class="botao-comercial" onclick="comercial()">Comercial</button>
+        <button type="button" class="botao-transporte" onclick="transporte()">Transporte de Passageiros</button>
+        <button type="button" class="botao-estacionamento" onclick="estacionamento()">Estacionamento Urbano</button>
+        <button type="button" class="botao-outros" onclick="outros()">Outros</button>
     </div>
     <script>
         /*Funcional */
-        function Ovoltar(){
-            window.location.href =  "Otransporte.html"
+        function voltar() {
+            window.location.href = "Itransporte.html"
         }
-        function Oproximo(){
-            window.location.href ="Ooutros.html"
-        } 
-        function Ocomercial(){
-            window.location.href = "Ocomercial.html";
+        function proximo() {
+            window.location.href = "Ioutros.html"
         }
-         
-        function Otransporte(){
-            window.location.href = "Otransporte.html";
+        function comercial() {
+            window.location.href = "Icomercial.html";
         }
 
-        function Oestacionamento(){
-            window.location.href = "Oestacionamento.html";
+        function transporte() {
+            window.location.href = "Itransporte.html";
         }
-     
-        function Ooutros(){
-            window.location.href = "Ooutros.html";
+
+        function estacionamento() {
+            window.location.href = "Iestacionamento.html";
+        }
+
+        function outros() {
+            window.location.href = "Ioutros.html";
         }
         /*Menu lateral*/
         function definicoes() {
@@ -125,4 +127,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -17,13 +17,8 @@
         </nav>
     </nav>
     <div class="menu-lateral" id="menuLateral" style="left: -250px;">
-        <a class="box1" href="../Utilizador/Menuviagens.html"></a>
-        <a class="box2" href="../Utilizador/Horariospercursos.html"></a>
-        <a class="box3" href="../Utilizador/Menuconsultarpontos.html"></a>
-        <a class="box4" href="../Utilizador/Menuativarpontos.html"></a>
-        <a class="box5" href="../Utilizador/Menupremios.html"></a>
-        <a class="box6" href="../Utilizador/Areaclientemostrardados.html"></a>
-        <a  class="box7" href="../Utilizador/Paginautilizador.html"></a>
+        <a class="box1m" href="../Motorista/AssociarPerfis.html"></a>
+        <a class="box2m" href="/*A Fazer*/"></a>
         <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
         <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
         <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
@@ -89,13 +84,13 @@
         }
         /*Menu lateral*/
         function definicoes() {
-        window.location.href = "../Utilizador/definicoes.html";
+        window.location.href = "../Motorista/definicoes.html";
         }
         function ajuda() {
-        window.location.href = "../Utilizador/Coapoioaocliente.html";
+        window.location.href = "../Motorista/Coapoioaocliente.html";
         }
         function terminar() {
-            fetch('http://localhost:8080/apagarLinhaAdministrador', {
+            fetch('http://localhost:8080/apagarLinhaMotorista', {
                 method: 'POST',
             })
                 .then(response => {
@@ -113,6 +108,7 @@
             var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
             var botaoAjudaL = document.getElementById("botaoAjudaL");
             var botaoTerminar = document.getElementById("botaoterminar");
+
 
             if (menu.style.left === "-250px") {
                 menu.style.left = "0";
