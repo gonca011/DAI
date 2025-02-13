@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area de Cliente</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="Apoiogrande">
+            <i class="areacliente">Área De Cliente </i>
+        </nav>
+    </nav>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1" href="Menuviagens.html"></a>
+        <a class="box2" href="Horariospercursos.html"></a>
+        <a class="box3" href="Menuconsultarpontos.html"></a>
+        <a class="box4" href="Menuativarpontos.html"></a>
+        <a class="box5" href="Menupremios.html"></a>
+        <a class="box6" href="Areaclientemostrardados.html"></a>
+        <a class="box7" href="Paginautilizador.html"></a>
+        <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL"
+            style="display: none;"></button>
+        <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+        <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar"
+            style="display: none;">Terminar sessão</button>
+    </div>
+    <div class="boxcomercial1">
+        <form class="conteudoboxcontainer" action="http://localhost:8080/eliminarConta" method="POST">
+            <div class="container">
+                <!-- Dados laterais  -->
+                <nav class="nome-do-cliente1">ATENÇÃO</nav>
+                <img src="Img/atencao.png" alt="Descrição da Imagem" class="atenção">
+                <h2 class="atencaof">
+                    Está prestes a terminar a sessão e apagar permanentemente a sua conta TUB. Para
+                    confirmar esta ação escreva no campo abaixo a sua Palavra Passe .
+                </h2>
+                <hr class="linha-horizontal">
+                <div class="inputboxveliminar">
+                    <input type="text" name="numdocIdentificacao" autocomplete="off" autofocus="" required>
+                    <label for="">Palavra&nbsp;Passe</label>
+                </div>
+                </nav>
+                <button type="button" class="botao-proximoed1v" onclick="voltar()">Voltar</button>
+                <button type="submit" class="botao-proximoed1ver">Confirmar</button>
+        </form>
+        <script>
+            function voltar() {
+                window.location.href = "Areaclientemostrardados.html"
+            }
+            function Eliminarocntap2() {
+                window.location.href = "Eliminarcontap2.html"
+            }
+            /*Menu lateral*/
+            function definicoes() {
+                window.location.href = "definicoes.html";
+            }
+            function ajuda() {
+                window.location.href = "Coapoioaocliente.html";
+            }
+            function terminar() {
+                fetch('http://localhost:8080/apagarLinhaCliente', {
+                    method: 'POST',
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        window.location.href = "../Paginainicial.html";
+                    })
+                    .catch(error => {
+                        console.error('There has been a problem with your fetch operation:', error);
+                    });
+            }
+            function toggleMenu() {
+                var menu = document.getElementById("menuLateral");
+                var botaoDefinicoes = document.getElementById("botaoDefinicoesL");
+                var botaoAjuda = document.getElementById("botaoAjudaL");
+                var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+                var botaoAjudaL = document.getElementById("botaoAjudaL");
+                var botaoTerminar = document.getElementById("botaoterminar");
+
+                if (menu.style.left === "-250px") {
+                    menu.style.left = "0";
+                    botaoDefinicoes.style.display = "none";
+                    botaoAjuda.style.display = "none";
+                    botaoDefinicoesL.style.display = "block";
+                    botaoAjudaL.style.display = "block";
+                    botaoTerminar.style.display = "block";
+                } else {
+                    menu.style.left = "-250px";
+                    botaoDefinicoes.style.display = "block";
+                    botaoAjuda.style.display = "block";
+                    botaoterminar.style.display = "none";
+                    botaoDefinicoesL.style.display = "none";
+                    botaoAjudaL.style.display = "none";
+                }
+            }
+        </script>
+
+</html>
