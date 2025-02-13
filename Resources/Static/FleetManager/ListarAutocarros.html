@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Autocarro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Lista atual de Autocarros</h2>
+        <ul id="autocarrosList"></ul>
+        <script>
+            fetch('http://localhost:8080/listarAutocarros')  // Replace with your server URL
+                .then(response => response.json())
+                .then(data => {
+                    const autocarrosList = document.getElementById('autocarrosList');
+
+                    data.forEach(autocarro => {
+                        const li = document.createElement('li');
+                        li.textContent = `Matricula: ${autocarro.matricula}, Capacidade: ${autocarro.capacidade}, NumKm: ${autocarro.numKm}`;
+                        autocarrosList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        </script>
+        <button class="botao-voltarad" onclick="window.location.href='AdicionarAutocarros.html'">Voltar</button>
+    </div>
+</body>
+
+</html>

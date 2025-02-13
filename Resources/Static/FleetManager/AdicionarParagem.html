@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Paragem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Adicionar Paragem</h2>
+        <form action="http://localhost:8080/addParagem" method="post">
+            <div class="inputBox">
+                <label for="rua">Rua:</label><br>
+                <input type="text" id="rua" name="rua" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="nParagem">Nº da Paragem:</label><br>
+                <input type="text" id="nParagem" name="nParagem" autocomplete="off" required>
+            </div>
+            <input type="submit" value="Guardar" class="botao-proximo">
+        </form>
+        <a class="botao-voltarad"  href="PaginaGestorDeFrota.html">Voltar </a>
+        <a class="tirarsub" href="RemoverParagem.html">Remover Paragens /</a>
+        <a class="tirarsub" href="EditarParagem.html">Editar Paragens /</a>
+        <a class="tirarsub" href="ListarParagem.html">Listar Paragens </a>
+        <a class="tirarsub" href="AdicionarPercursoAParagem.html">/ Adicionar Percurso a Esta Paragem</a>
+    </div>
+</body>

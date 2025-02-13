@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Percurso a Paragem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Adicionar Percurso a Paragem</h2>
+            <form action="http://localhost:8080/adiconarPercursoAParagem" method="post">
+                <div class="inputBox utilizado ">
+                    <input type="text" id="nParagem" name="nParagem" required>
+                    <label for="nParagem">Número da Paragem:</label>
+                </div>
+                <div class="inputBox utilizado ">
+                    <input type="text" id="id" name="id" required>
+                    <label for="id">ID do Percurso a Adicionar:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+            <a class="botao-voltaradd"   href="AdicionarParagem.html" >Voltar</a>
+        </div>
+        <div class="boxRegisto">
+            <h2>Lista atual de Percursos</h2>
+            <ul id="percursosList"></ul>
+            <script>
+            fetch('http://localhost:8080/listaPercursos')
+                 .then(response => response.json()) // <<< Corrigido: Usar .json()
+                 .then(data => {
+                     const percursos = data;
+                     const percursosList = document.getElementById('percursosList');
+                     console.log(percursos);
+                     percursos.forEach(percurso => {
+                         const li = document.createElement('li');
+                         li.textContent = `ID: ${percurso.id}, Origem: ${percurso.origem}, Destino: ${percurso.destino}`;
+                         percursosList.appendChild(li);
+                     });
+                 })
+                 .catch(error => {
+                     console.error('Error:', error);
+                 });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

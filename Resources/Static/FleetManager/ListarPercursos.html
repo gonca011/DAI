@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Percursos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Listar Percursos</h2>
+        <ul id="percursosList"></ul>
+
+        <script>
+           fetch('http://localhost:8080/listaPercursos')
+            .then(response => response.json()) // <<< Corrigido: Usar .json()
+            .then(data => {
+                const percursos = data;
+                const percursosList = document.getElementById('percursosList');
+                console.log(percursos);
+                percursos.forEach(percurso => {
+                    const li = document.createElement('li');
+                    li.textContent = `ID: ${percurso.id}, Origem: ${percurso.origem}, Destino: ${percurso.destino}`;
+                    percursosList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        </script>
+        <a href="AdicionarPercursos.html" class="botao-voltarad">Voltar</a>
+    </div>
+</body>
+
+</html>

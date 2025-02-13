@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Anúncios de Atraso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Listar Anúncios de Atraso</h2>
+        <ul id="anunciosList"></ul>
+
+        <script>
+            fetch('http://localhost:8080/listarAnuncios')
+                .then(response => response.json())
+                .then(anuncios => {
+                    const anunciosList = document.getElementById('anunciosList');
+                    anuncios.forEach(anuncio => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `ID: ${anuncio.idAtraso}, Motivo: ${anuncio.motivoAtraso}, Tempo Atraso: ${anuncio.tempoAtraso}`;
+                        anunciosList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        </script>
+
+        <button class="botao-voltarad" onclick="window.location.href='AdicionarAnunciosDeAtraso.html'"> Voltar</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Anuncio de Alteração de Rota</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Editar Anúncio de Alteração de Rota</h2>
+            <form action="http://localhost:8080/editarAnuncioAlteracao" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="idAlteracao" name="idAlteracao" required>
+                    <label for="idAlteracao">ID do Anúnio:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="motivo" name="motivo" required>
+                    <label for="motivo">Motivo:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="idParagem" name="idParagem" required>
+                    <label for="idParagem">ID da Paragem:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="idPercurso" name="idPercurso" required>
+                    <label for="idPercurso">ID do Percurso:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Editar</button>
+            </form>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Anúncios de Alteração de Rota</h2>
+            <ul id="anunciosList"></ul>
+            <a href="AdicionarAnuncioDeAlteracaoDeRota.html" class="botao-voltaradd">Voltar</a>
+            <script>
+                fetch('../anunciosdeAlteracaoDeRotas.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Fetched data:', data);
+                        const anuncios = data.split('\n');
+                        console.log('Anuncios:', anuncios);
+                        const anunciosList = document.getElementById('anunciosList');
+            
+                        anuncios.forEach(anuncio => {
+                            console.log('Processing anuncio:', anuncio);
+                            const li = document.createElement('li');
+                            const anuncioObj = anuncio.match(/AnunciodeAlteracaodeRota{paragemAlterada=Paragem{nome='(.+?)', rua='(.+?)', nParagem='(.+?)'.*?Percursos{id=(.+?), origem=(.+?), destino=(.+?)}]}}, percursoAlterado=Percursos{id=(.+?), origem=(.+?), destino=(.+?)}, idAlteracao='(.+?)', motivo='(.+?)'/);
+                            console.log('Matched anuncioObj:', anuncioObj);
+                            if (anuncioObj) {
+                                li.textContent = `Nome: ${anuncioObj[1]}, Rua: ${anuncioObj[2]}, NParagem: ${anuncioObj[3]}, Percursos: ID: ${anuncioObj[4]}, Origem: ${anuncioObj[5]}, Destino: ${anuncioObj[6]}, Percurso Alterado: ID: ${anuncioObj[7]}, Origem: ${anuncioObj[8]}, Destino: ${anuncioObj[9]}, ID Alteracao: ${anuncioObj[10]}, Motivo: ${anuncioObj[11]}`;
+                                anunciosList.appendChild(li);
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

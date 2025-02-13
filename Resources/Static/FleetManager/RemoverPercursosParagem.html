@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Percurso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Percurso</h2>
+            <form action="http://localhost:8080/removerPercursoAParagem" method="post">
+                <div class="inputBox utilizado">
+                    <label for = "nParagem">Número da Paragem:</label>
+                    <input type="text" id="nParagem" name="nParagem" required>
+                </div>
+                <div class="inputBox utilizado">
+                    <label for="id">ID do Percurso:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+            <a href="AlterarPercursos.html" class="botao-voltaradd">Voltar</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Paragens</h2>
+            <ul id="paragensList"></ul>
+            <script>
+                fetch('../paragens.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        const paragens = data.split('\n');
+                        const paragensList = document.getElementById('paragensList');
+    
+                        paragens.forEach(paragem => {
+                            const li = document.createElement('li');
+                            const paragemObj = paragem.match(/Paragem{nome='(.+?)', rua='(.+?)', nParagem='(.+?)', listaPercursos=Listapercursos{percursos=\[(.+?)\]}}/);
+                            if (paragemObj) {
+                                li.textContent = `Nome: ${paragemObj[1]}, Rua: ${paragemObj[2]}, Nº da Paragem: ${paragemObj[3]}, Percursos: ${paragemObj[4]}`;
+                                paragensList.appendChild(li);
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

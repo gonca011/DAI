@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editar Paragem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Editar Paragem</h2>
+            <form action="http://localhost:8080/editarParagem" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="nParagem" name="nParagem" required>
+                    <label for="nParagem">Número da Paragem</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="nome" required>
+                    <label for="nome">Novo nome</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="rua" required>
+                    <label for="rua">Nova rua</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+            <a href="AdicionarParagem.html" class="botao-voltaradd">Voltar</a>
+            <a href="AlterarPercursos.html" class="botao-proximo">Alterar Lista de Percursos</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Paragens</h2>
+            <ul id="paragensList"></ul>
+            <script>
+                fetch('http://localhost:8080/paragens')
+                .then(response => response.json())
+                .then(paragens => {
+                    const paragensList = document.getElementById('paragensList');
+
+                    paragens.forEach(paragem => {
+                        const li = document.createElement('li');
+                        const percursos = paragem.listaPercursos ? paragem.listaPercursos.percursos.join(', ') : 'Nenhum percurso';
+                        li.textContent = `Nome: ${paragem.nome}, Rua: ${paragem.rua}, Nº da Paragem: ${paragem.nParagem}, Percursos: ${percursos}`;
+                        paragensList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            </script>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
