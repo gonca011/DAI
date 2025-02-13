@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Associar Perfil Especial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Associar Perfil Especial</h2>
+            <form action="http://localhost:8080/associarPerfilEspecial" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="email" name="email" required>
+                    <label for="email">O seu endereço de email:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" required>
+                    <label for="numdocIdentificacao">A sua palavra passe:</label>
+                </div>
+                <div class="inputBox utilizado">
+                    <input type="text" id="perfil" name="perfil" required>
+                    <label for="perfil">O tipo de Perfil Especial a que quer associar:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+            <a href="AssociarPerfis.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>

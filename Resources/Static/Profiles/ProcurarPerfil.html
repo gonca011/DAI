@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Procurar Perfil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Procurar Perfil</h2>
+        <form onsubmit="searchEmail(event)">
+            <div class="inputBox utilizado">
+                <input type="text" id="perfil" name="perfil" required>
+                <label for="perfil">Introduza o tipo de perfil</label>
+            </div>
+            <div class="inputBox utilizado">
+                <input type="text" id="numdocIdentificacao" name="numdocIdentificacao" required>
+                <label for="numdocIdentificacao">Introduza o número de identificação</label>
+            </div>
+            <button type="submit" class="botao-proximo1">Pesquisar</button>
+        </form>
+        <p id="result"></p>
+        <a href="AssociarPerfis.html" class="botao-voltarad">Voltar</a>
+    </div>
+
+    <script>
+        async function searchEmail(event) {
+            event.preventDefault();
+            const perfil = document.getElementById("perfil").value;
+            const numdocIdentificacao = document.getElementById("numdocIdentificacao").value;
+            try {
+                const response = await fetch('http://localhost:8080/searchEmail?perfil=' + perfil + '&numdocIdentificacao=' + numdocIdentificacao);
+                const data = await response.text();
+                document.getElementById("result").innerHTML = data;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>
