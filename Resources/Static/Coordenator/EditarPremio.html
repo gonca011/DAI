@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Prémio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Editar Prémio</h2>
+            <form action="http://localhost:8080/editarPremio" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="id" name="id" required>
+                    <label for="id">ID do Prémio a Editar:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="nome" required>
+                    <label for="nome">Novo Nome do Prémio:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="descricao" required>
+                    <label for="descricao">Descricao:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="criteriodeAtribuicao" required>
+                    <label for="criteriodeAtribuicao">Criterio de Atribuicao:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista de Prémios</h2>
+            <ul id="premiosList"></ul>
+
+            <script>
+                fetch('http://localhost:8080/listarPremios')
+                    .then(response => response.json())
+                    .then(data => {
+                        const premiosList = document.getElementById('premiosList');
+
+                        data.forEach(premio => {
+                            const li = document.createElement('li');
+                            li.textContent = `Nome: ${premio.nome}, Descrição: ${premio.descricao}, Critério de Atribuição: ${premio.criteriodeAtribuicao}, ID: ${premio.id}`;
+                            premiosList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+            <a href="AdicionarPremio.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>

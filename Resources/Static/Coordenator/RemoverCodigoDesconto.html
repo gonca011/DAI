@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Código de Desconto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Código de Desconto</h2>
+            <form action="http://localhost:8080/removeCodigoDesconto" method="post">
+                <div class="inputBox utilizado">
+                    <label for="id">ID do Código de Desconto:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+            <a href="AdicionarCodigoDesconto.html" class="botao-voltaradd">Voltar</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista de Códigos de Desconto</h2>
+            <ul id="premiosList"></ul>
+           
+            <script>
+                fetch('http://localhost:8080/listarCodigoDesconto')
+                    .then(response => response.json())
+                    .then(data => {
+                        const promocoesList = document.getElementById('premiosList');
+
+                        data.forEach(promocao => {
+                            const li = document.createElement('li');
+                            li.textContent = `Nome: ${promocao.nome}, Descrição: ${promocao.descricao}, Critério de Atribuição: ${promocao.criterioDeAtribuicao}, ID: ${promocao.id}`;
+                            promocoesList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

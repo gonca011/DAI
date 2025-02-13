@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Parceiros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h1>Listar Parceiros</h1>
+        <ul id="parceirosList"></ul>
+        <a href="AdicionarParceiros.html" class="botao-voltarad">Voltar</a>
+    </div>
+
+    <script>
+        fetch('http://localhost:8080/listarParceiros')
+            .then(response => response.json())
+            .then(data => {
+                const parceirosList = document.getElementById('parceirosList');
+
+                data.forEach(parceiro => {
+                    const li = document.createElement('li');
+                    li.textContent = `Nome: ${parceiro.nome}, Descricao: ${parceiro.descricao}, ID: ${parceiro.id}`;
+                    parceirosList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+
+</html>

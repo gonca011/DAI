@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Promoções</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Lista de Códigos de Desconto</h2>
+        <ul id="premiosList"></ul>
+
+        <script>
+            fetch('http://localhost:8080/listarCodigoDesconto')
+                .then(response => response.json())
+                .then(data => {
+                    const promocoesList = document.getElementById('premiosList');
+
+                    data.forEach(promocao => {
+                        const li = document.createElement('li');
+                        li.textContent = `Nome: ${promocao.nome}, Descrição: ${promocao.descricao}, Critério de Atribuição: ${promocao.criterioDeAtribuicao}, ID: ${promocao.id}`;
+                        promocoesList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        </script>
+        <a href="AdicionarCodigoDesconto.html" class="botao-voltarad">Voltar</a>
+    </div>
+</body>
+
+</html>

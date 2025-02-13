@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Prémio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <h2>Adicionar Prémio</h2>
+        <header>
+            <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+            <button type="button" class="botao-definicoes" onclick="definicoes()" id="botaoDefinicoes"></button>
+            <button type="button" class="botao-ajuda" onclick="ajuda()" id="botaoAjuda"></button>
+        </header>
+        <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+            <a class="box1c" href="AssociarPerfis.html"></a>
+            <a class="box2c" href="AdicionarPremio.html"></a>
+            <a class="box3c" href="AdicionarPromocao.html"></a>
+            <a class="box4c" href="AdicionarCodigoDesconto.html"></a>
+            <a class="box5c" href="AdicionarParceiros.html"></a>
+            <button type="button" class="botao-definicoesp" onclick="definicoes()" id="botaoDefinicoesL" style="display: none;"></button>
+            <button type="button" class="botao-ajudap" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+            <button type="button" class="botao-terminar" onclick="terminar()" id="botaoterminar" style="display: none;">Terminar sessão</button>
+        </div>
+        <form action="http://localhost:8080/addPremio" method="post">
+            <div class="inputBox">
+                <label for="id">Nº de Identificação:</label><br>
+                <input type="text" id="id" name="id" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="descricao">Descrição:</label><br>
+                <input type="text" id="descricao" name="descricao" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <label for="criteriodeAtribuicao">Critério de Atribuição:</label><br>
+                <input type="text" id="criteriodeAtribuicao" name="criteriodeAtribuicao" autocomplete="off" required>
+            </div>
+            <input type="submit" value="Guardar" class="botao-proximo">
+        </form>
+        <a class="botao-voltarab" href="PaginaCoordenador.html">Voltar </a>
+        <a class="tirarsub" href="RemoverPremio.html">Remover Prémio /</a>
+        <a class="tirarsub" href="EditarPremio.html">Editar Prémio /</a>
+        <a class="tirarsub" href="ListarPremio.html">Listar Prémios</a>
+    </div>
+    <script>
+        function definicoes() {
+           window.location.href = "definicoes.html";
+       }
+       function ajuda() {
+           window.location.href = "Coapoioaocliente.html";
+       }
+       function terminar() {
+           fetch('http://localhost:8080/apagarLinhaCoordenador', {
+               method: 'POST',
+           })
+               .then(response => {
+                   if (!response.ok) {
+                       throw new Error('Network response was not ok');
+                   }
+                   window.location.href = "../Paginainicial.html";
+               })
+               .catch(error => {
+                   console.error('There has been a problem with your fetch operation:', error);
+               });
+       }
+       function toggleMenu() {
+           var menu = document.getElementById("menuLateral");
+           var botaoDefinicoes = document.getElementById("botaoDefinicoes");
+           var botaoAjuda = document.getElementById("botaoAjuda");
+           var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+           var botaoAjudaL = document.getElementById("botaoAjudaL");
+           var botaoTerminar = document.getElementById("botaoterminar");
+
+           if (menu.style.left === "-250px") {
+               menu.style.left = "0";
+               botaoDefinicoes.style.display = "none";
+               botaoAjuda.style.display = "none";
+               botaoDefinicoesL.style.display = "block";
+               botaoAjudaL.style.display = "block";
+               botaoTerminar.style.display = "block";
+           } else {
+               menu.style.left = "-250px";
+               botaoDefinicoes.style.display = "block";
+               botaoAjuda.style.display = "block";
+               botaoterminar.style.display = "none";
+               botaoDefinicoesL.style.display = "none";
+               botaoAjudaL.style.display = "none";
+           }
+       }
+    </script> 
+</body>
+</html>

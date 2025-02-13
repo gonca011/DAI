@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Parceiro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Parceiro</h2>
+            <form action="http://localhost:8080/removerParceiro" method="post">
+                <div class="inputBox utilizado">
+                    <label for="id">ID do Parceiro:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+            <a href="AdicionarParceiros.html" class="botao-voltaradd">Voltar</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista atual de Parceiros</h2>
+            <ul id="parceirosList"></ul>
+            <script>
+                fetch('http://localhost:8080/listarParceiros')
+                    .then(response => response.json())
+                    .then(data => {
+                        const parceirosList = document.getElementById('parceirosList');
+
+                        data.forEach(parceiro => {
+                            const li = document.createElement('li');
+                            li.textContent = `Nome: ${parceiro.nome}, Descricao: ${parceiro.descricao}, ID: ${parceiro.id}`;
+                            parceirosList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

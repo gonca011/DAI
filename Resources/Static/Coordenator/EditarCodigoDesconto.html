@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Código de Desconto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Editar Código de Desconto</h2>
+            <form action="http://localhost:8080/editarCodigoDesconto" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" id="id" name="id" required>
+                    <label for="id">ID do Código de Desconto a Editar:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="nome" required>
+                    <label for="nome">Novo Nome do Código de Desconto:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="descricao" required>
+                    <label for="descricao">Descrição:</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="criterioDeAtribuicao" required>
+                    <label for="criterioDeAtribuicao">Criterio de Atribuição:</label>
+                </div>
+                <button type="submit" class="botao-proximo1">Guardar</button>
+            </form>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista de Códigos de Desconto</h2>
+            <ul id="premiosList"></ul>
+
+            <script>
+                fetch('http://localhost:8080/listarCodigoDesconto')
+                    .then(response => response.json())
+                    .then(data => {
+                        const promocoesList = document.getElementById('premiosList');
+
+                        data.forEach(promocao => {
+                            const li = document.createElement('li');
+                            li.textContent = `Nome: ${promocao.nome}, Descrição: ${promocao.descricao}, Critério de Atribuição: ${promocao.criterioDeAtribuicao}, ID: ${promocao.id}`;
+                            promocoesList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            </script>
+            <a href="AdicionarCodigoDesconto.html" class="botao-voltaradd">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>

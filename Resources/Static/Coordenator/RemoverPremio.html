@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Prémio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="container">
+        <div class="boxRegisto">
+            <h2>Remover Prémio</h2>
+            <form action="http://localhost:8080/removePremio" method="post">
+                <div class="inputBox utilizado">
+                    <label for="id">ID do Prémio:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+                <button type="submit" class="botao-proximo1">Remover</button>
+            </form>
+            <a href="AdicionarPremio.html" class="botao-voltaradd">Voltar</a>
+        </div>
+        <div class="boxRegisto2d">
+            <h2>Lista de Prémios</h2>
+            <ul id="premiosList"></ul>
+           
+        <script>
+            fetch('http://localhost:8080/listarPremios')
+                    .then(response => response.json())
+                    .then(data => {
+                        const premiosList = document.getElementById('premiosList');
+
+                        data.forEach(premio => {
+                            const li = document.createElement('li');
+                            li.textContent = `Nome: ${premio.nome}, Descrição: ${premio.descricao}, Critério de Atribuição: ${premio.criteriodeAtribuicao}, ID: ${premio.id}`;
+                            premiosList.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+        </script>
+        </div>
+    </div>
+</body>
+</html>
