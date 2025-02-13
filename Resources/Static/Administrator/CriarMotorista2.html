@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Conta de Motorista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="fundo">
+    <div class="boxRegisto">
+        <img src="Img/adionar.png" alt="adicionar" class="centrado">
+        <h2>Criar Conta de Motorista</h2>
+        <img src="Img/1semc.png" alt="1" class="img1">
+        <img src="Img/2v.png" alt="2" class="img2">
+        <img src="Img/3.png" alt="3" class="img3">
+        <form action="http://localhost:8080/criarMotorista2" method="post">
+            <div class="inputBox utilizado">
+                <input type="text" name="dataDeNascimento" autocomplete="off" autofocus="" required>
+                <label for="">Data de Nascimento</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="nif" autocomplete="off" autofocus="" required>
+                <label for="">NIF</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="dataValidadeDocIdentificacao" autocomplete="off" autofocus="" required>
+                <label for="">Data Validade Doc. Identificação</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="codigoPostal" autocomplete="off" autofocus="" required>
+                <label for="">Código Postal</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="morada" autocomplete="off" autofocus="" required>
+                <label for="">Morada</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="porta" autocomplete="off" autofocus="" required>
+                <label for="">Porta</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="telemovel" autocomplete="off" autofocus="" required>
+                <label for="">Telemóvel</label>
+            </div>
+            <input type="submit" value="Próximo" class="botao-proximo">
+        </form>
+        <a  class="botao-voltar1" href="CriarMotorista.html">Voltar </a>
+        <a  class="tirarsub" href="CriarGestorDeFrota.html">Criar Gestor de Frota /</a>
+        <a  class="tirarsub" href="CriarCoordenador.html">Criar Coordenador</a>
+    </div>
+</body>
+
+</html>

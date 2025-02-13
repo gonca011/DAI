@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Criar Conta de Coordenador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Centrar.css">
+        <link rel="stylesheet" href="Caixas.css">
+        <link rel="stylesheet" href="Botoes.css">
+    </head>
+
+    <body class="fundo">
+        <div class="boxRegisto">
+            <h2>Criar Conta de Coordenador</h2>
+            <form action="http://localhost:8080/criarCoordenador" method="post">
+                <div class="inputBox utilizado">
+                    <input type="text" name="nome" autocomplete="off" autofocus="" required>
+                    <label for="">Nome</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="email" autocomplete="off" autofocus="" required>
+                    <label for="">Endereço de Email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="numdocIdentificacao" autocomplete="off" autofocus="" required>
+                    <label for="">Nº Doc. Identificação</label>
+                </div>
+                <h1 class="h1">Esta será a palavra-passe do Coordenador!</h1>
+                <input type="submit" value="Próximo" class="botao-proximo">
+            </form>
+            <a  class="botao-voltarad" href="AdminCriarOutrasContas.html">Voltar </a>
+            <a  class="tirarsub" href="CriarMotorista.html">Criar Motorista /</a>
+            <a  class="tirarsub" href="CriarGestorDeFrota.html">Criar Gestor de Frota</a>
+        </div>
+    </body>
+</html>
