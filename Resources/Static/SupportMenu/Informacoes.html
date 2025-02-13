@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações</title>
+    <link rel="stylesheet" href="Centrar.css">
+    <link rel="stylesheet" href="Caixas.css">
+    <link rel="stylesheet" href="Botoes.css">
+</head>
+
+<body class="backgrouninformaçoes ">
+    <nav class="boxbackground">
+        <button type="button" class="botao-menu" onclick="toggleMenu()"></button>
+        <nav class="Infgrande">
+            <i class="informacao">INFORMAÇÃO</i>
+            <h6 class="apoio">APOIO AO CLIENTE</h6>
+        </nav>
+    </nav>
+    <div class="menu-lateral" id="menuLateral" style="left: -250px;">
+        <a class="box1" href="../Utilizador/Menuviagens.html"></a>
+        <a class="box2" href="../Utilizador/Horariospercursos.html"></a>
+        <a class="box3" href="../Utilizador/Menuconsultarpontos.html"></a>
+        <a class="box4" href="../Utilizador/Menuativarpontos.html"></a>
+        <a class="box5" href="../Utilizador/Menupremios.html"></a>
+        <a class="box6" href="../Utilizador/Paginautilizador.html"></a>
+        <button type="button" class="botao-definicoesl" onclick="definicoes()" id="botaoDefinicoesL"
+            style="display: none;"></button>
+        <button type="button" class="botao-ajudal" onclick="ajuda()" id="botaoAjudaL" style="display: none;"></button>
+    </div>
+    <button type="button" class="botao-comercial" onclick="comercial()">Comercial</button>
+    <button type="button" class="botao-transporte" onclick="transporte()">Transporte de Passageiros</button>
+    <button type="button" class="botao-estacionamento" onclick="estacionamento()">Estacionamento Urbano</button>
+    <button type="button" class="botao-outros" onclick="outros()">Outros</button>
+    </div>
+    <div>
+    </div>
+    <script>
+        /*Funcional */
+        function comercial() {
+            window.location.href = "../Informacoes/Icomercial.html";
+        }
+
+        function transporte() {
+            window.location.href = "../Informacoes/Itransporte.html";
+        }
+
+        function estacionamento() {
+            window.location.href = "../Informacoes/Iestacionamento.html";
+        }
+
+        function outros() {
+            window.location.href = "../Informacoes/Ioutros.html";
+        }
+        /*Menu lateral*/
+        function definicoes() {
+            window.location.href = "../Utilizador/definicoes.html";
+        }
+        function ajuda() {
+            window.location.href = "../Utilizador/Coapoioaocliente.html";
+        }
+        function toggleMenu() {
+            var menu = document.getElementById("menuLateral");
+            var botaoDefinicoesL = document.getElementById("botaoDefinicoesL");
+            var botaoAjudaL = document.getElementById("botaoAjudaL");
+
+            if (menu.style.left === "-250px") {
+                menu.style.left = "0";
+                botaoDefinicoesL.style.display = "block";
+                botaoAjudaL.style.display = "block";
+            } else {
+                menu.style.left = "-250px";
+                botaoDefinicoesL.style.display = "none";
+                botaoAjudaL.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
